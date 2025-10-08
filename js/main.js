@@ -26,13 +26,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Mobile menu toggle (if needed in future)
-    const mobileMenuButton = document.querySelector('[data-mobile-menu-toggle]');
-    const mobileMenu = document.querySelector('[data-mobile-menu]');
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
     
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            
+            // Toggle icon between hamburger and X
+            const icon = mobileMenuButton.querySelector('svg path');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('svg path');
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
         });
     }
 
