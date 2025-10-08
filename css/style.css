@@ -258,6 +258,28 @@ section, div, header, footer {
     width: fit-content;
 }
 
+/* New Icon Wrapper for Custom PNG Icons */
+.icon-wrap-new {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: fit-content;
+    border: 2px solid transparent;
+}
+
+@media (hover: hover) {
+    .card:hover .icon-wrap-new {
+        transform: translateY(-4px) scale(1.05);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        border-color: var(--medical-blue);
+    }
+}
+
+@media (hover: none) {
+    .card:active .icon-wrap-new {
+        transform: scale(0.98);
+    }
+}
+
 .card[data-service="primary"] .icon-wrap {
     background: linear-gradient(135deg, var(--medical-blue) 0%, #1976d2 100%);
 }
