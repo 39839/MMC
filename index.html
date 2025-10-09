@@ -13,6 +13,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dropdown-fix.css">
 
     <script>
         tailwind.config = {
@@ -146,14 +147,14 @@
 
                 <div class="hidden lg:flex items-center gap-8 xl:gap-10 flex-1 justify-center">
                     <a href="index.html" class="nav-link active">Home</a>
-                    <div class="relative group">
-                        <button class="nav-link flex items-center gap-2">
+                    <div class="services-dropdown-wrapper relative">
+                        <button class="nav-link flex items-center gap-2" id="services-button">
                             Services
-                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 transition-transform" id="services-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-80 bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-2 border-brand-blue overflow-hidden">
+                        <div class="services-dropdown" id="services-dropdown">
                             <div class="py-2">
                                 <a href="pages/urgent-primary-care.html" class="dropdown-link">Urgent & Primary Care</a>
                                 <a href="pages/sports-medicine.html" class="dropdown-link">Sports Medicine & Physical Therapy</a>
@@ -176,7 +177,6 @@
                         Patient Portal
                     </a>
                     
-                    <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn" class="lg:hidden p-2 text-dark-gray hover:text-brand-blue transition-colors" aria-label="Toggle menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -185,7 +185,6 @@
                 </div>
             </nav>
             
-            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden lg:hidden pb-4">
                 <div class="flex flex-col space-y-3">
                     <a href="index.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded">Home</a>

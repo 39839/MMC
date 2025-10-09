@@ -33,41 +33,78 @@
 </head>
 <body class="bg-light-gray">
 
-    <!-- HEADER -->
-    <header class="glass-effect sticky top-0 z-50 shadow-sm">
+    <div class="bg-brand-blue text-white py-3.5 text-sm border-b-4 border-brand-orange">
         <div class="container mx-auto px-6 lg:px-8">
-            <nav class="flex justify-between items-center py-5 lg:py-6">
-                <a href="../index.html">
-                    <img src="https://mmccare.com/wp-content/uploads/2016/09/top-logo-with-text.png" alt="Montgomery Medical Clinic" class="h-12 lg:h-14 w-auto">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8">
+                <a href="tel:3012082273" class="hover:text-brand-orange transition-colors flex items-center gap-2.5 font-semibold text-base">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    <span class="tracking-wide">Call: (301) 208-2273</span>
                 </a>
                 
-                <div class="hidden lg:flex items-center space-x-10">
+                <div class="hidden sm:block w-px h-6 bg-white/30"></div>
+                
+                <a href="sms:3012052293" class="hover:text-brand-orange transition-colors flex items-center gap-2.5 font-semibold text-base">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    <span class="tracking-wide">Text: (301) 205-2293</span>
+                </a>
+                
+                <div class="hidden md:block w-px h-6 bg-white/30"></div>
+                
+                <div class="hidden md:flex items-center gap-2.5 font-semibold text-base">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="tracking-wide">Mon-Thu 8am-7pm | Fri 8am-6pm | Sat-Sun 8am-1pm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="glass-effect sticky top-0 z-50">
+        <div class="container mx-auto px-6 lg:px-8 max-w-[1400px]">
+            <nav class="flex items-center justify-between py-5 gap-8">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex items-center group">
+                        <img src="../images/Logo.png" alt="Montgomery Medical Clinic" class="h-16 w-auto lg:h-20 object-contain transition-transform duration-200 group-hover:scale-105" />
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex items-center gap-8 xl:gap-10 flex-1 justify-center">
                     <a href="../index.html" class="nav-link">Home</a>
-                    <div class="relative group">
-                        <button class="nav-link flex items-center gap-1 active">
+                    <div class="services-dropdown-wrapper relative">
+                        <button class="nav-link flex items-center gap-2" id="services-button">
                             Services
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            <svg class="w-4 h-4 transition-transform" id="services-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <div class="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gray-100">
-                            <div class="py-3">
-                                <a href="urgent-primary-care.html" class="block px-6 py-3 bg-light-blue-bg font-semibold text-brand-blue">Urgent & Primary Care</a>
-                                <a href="sports-medicine.html" class="block px-6 py-3 hover:bg-light-blue-bg transition-colors">Sports Medicine</a>
-                                <a href="dermatology.html" class="block px-6 py-3 hover:bg-light-blue-bg transition-colors">Dermatology</a>
-                                <a href="nutrition-wellness.html" class="block px-6 py-3 hover:bg-light-blue-bg transition-colors">Nutrition + Wellness</a>
-                                <a href="occupational-health.html" class="block px-6 py-3 hover:bg-light-blue-bg transition-colors">Occupational Health</a>
-                                <a href="physical-therapy.html" class="block px-6 py-3 hover:bg-light-blue-bg transition-colors">Physical Therapy</a>
+                        <div class="services-dropdown" id="services-dropdown">
+                            <div class="py-2">
+                                <a href="urgent-primary-care.html" class="dropdown-link">Urgent & Primary Care</a>
+                                <a href="sports-medicine.html" class="dropdown-link">Sports Medicine & Physical Therapy</a>
+                                <a href="dermatology.html" class="dropdown-link">Dermatology</a>
+                                <a href="nutrition-wellness.html" class="dropdown-link">Nutrition + Wellness</a>
+                                <a href="occupational-health.html" class="dropdown-link">Occupational Health</a>
                             </div>
                         </div>
                     </div>
-                    <a href="../index.html#about" class="nav-link">About</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="insurance.html" class="nav-link">Insurance</a>
                     <a href="../index.html#contact" class="nav-link">Contact</a>
                 </div>
-                
-                <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="btn btn-primary text-sm lg:text-base px-6 lg:px-10 py-3 lg:py-4">
-                    Book Appointment
-                </a>
+
+                <div class="flex items-center gap-3 xl:gap-4">
+                    <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="hidden lg:inline-flex btn btn-primary whitespace-nowrap">
+                        Request Appointment
+                    </a>
+                    <a href="https://15259-6.portal.athenahealth.com/" target="_blank" class="btn btn-secondary whitespace-nowrap">
+                        Patient Portal
+                    </a>
+                </div>
             </nav>
         </div>
     </header>
@@ -91,12 +128,12 @@
     <section class="py-20 lg:py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-8">
             <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-r from-brand-blue/5 to-brand-orange/5 p-8 lg:p-12 rounded-3xl mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl font-bold text-brand-blue mb-6">No Appointment Necessary for Urgent Care</h2>
+                <div class="bg-gradient-to-r from-blue-50 to-green-50 p-8 lg:p-12 rounded-3xl mb-12" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-brand-blue mb-6">Walk-In Care & Lifelong Health Partnership</h2>
                     <p class="text-lg leading-relaxed mb-4">
                         Your whole family needs to visit a family physician regularly to maintain optimal health and receive routine physicals and preventative care. Recent research shows that adults who visit their primary care doctor regularly better manage chronic conditions, maintain lower healthcare costs, and are more satisfied with care.
                     </p>
-                    <p class="text-lg leading-relaxed">
+                    <p class="text-lg leading-relaxed italic">
                         Our physicians and experienced medical team are available to provide the services you need <strong>without an appointment</strong>. We offer flexible hours seven days a week and are even <strong>open on holidays!</strong>
                     </p>
                 </div>
@@ -142,6 +179,12 @@
                         <p class="text-medium-gray">Board-certified physicians and experienced medical professionals.</p>
                     </div>
                 </div>
+
+                <div class="prose max-w-none mb-12" data-aos="fade-up">
+                    <div class="bg-brand-blue/5 p-6 rounded-xl">
+                        <p class="text-lg font-semibold text-brand-blue">✓ On-Site X-Ray & Diagnostic Services</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -150,7 +193,7 @@
     <section class="py-20 lg:py-24 bg-light-blue-bg">
         <div class="container mx-auto px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-5xl font-black mb-6">Comprehensive Services</h2>
+                <h2 class="text-4xl lg:text-5xl font-black mb-6">Comprehensive Medical Services</h2>
                 <p class="text-xl text-medium-gray max-w-3xl mx-auto">From preventative care to urgent medical needs, we provide complete healthcare services for you and your family.</p>
             </div>
 
@@ -158,44 +201,44 @@
                 <div class="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-up">
                     <h3 class="text-2xl font-bold text-brand-blue mb-6">Primary Care / Preventative</h3>
                     <ul class="space-y-3 text-medium-gray">
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Routine physicals</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Routine vaccinations</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Routine physicals & wellness exams</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Routine vaccinations & immunizations</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Blood pressure screening</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Diagnostic testing</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Men's & women's health</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> STD testing</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Diagnostic testing & lab work</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Men's & women's health services</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> STD testing & treatment</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Well woman examinations</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> IUD placement</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> IUD placement & contraception</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Pap smears & breast exams</li>
                     </ul>
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-2xl font-bold text-brand-blue mb-6">Acute Conditions: Urgent Care</h3>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-6">Urgent Care Services</h3>
                     <ul class="space-y-3 text-medium-gray">
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Colds / Upper respiratory infections</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Fever & sore throat</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Influenza (flu)</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Asthma attacks</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Influenza (flu) treatment</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Asthma attacks & breathing issues</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Abdominal pain</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> UTI & kidney infections</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Earache</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Eye infection</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Rashes & allergies</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Ear infections & earaches</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Eye infections</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Rashes, hives & allergic reactions</li>
                     </ul>
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-2xl font-bold text-brand-blue mb-6">Chronic Conditions</h3>
+                    <h3 class="text-2xl font-bold text-brand-blue mb-6">Chronic Disease Management</h3>
                     <ul class="space-y-3 text-medium-gray">
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Hypertension (high blood pressure)</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Diabetes</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Diabetes management</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Hyperlipidemia (high cholesterol)</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Asthma/COPD</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Arthritis and back pain</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Depression and anxiety</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Migraines</li>
-                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Weight loss management</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Asthma/COPD treatment</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Arthritis & chronic pain</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Depression & anxiety</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Migraine management</li>
+                        <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Weight loss & obesity management</li>
                     </ul>
                 </div>
             </div>
@@ -206,7 +249,7 @@
     <section class="py-20 lg:py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-5xl font-black mb-6">Meet Our Physicians</h2>
+                <h2 class="text-4xl lg:text-5xl font-black mb-6">Our Primary Care Physicians</h2>
                 <p class="text-xl text-medium-gray max-w-3xl mx-auto">Board-certified family medicine doctors dedicated to your health and wellbeing.</p>
             </div>
 
@@ -217,10 +260,13 @@
                         <h3 class="doctor-name">Dr. Efi Kessous, MD, MPH</h3>
                         <p class="doctor-title">Board-Certified in Family Medicine</p>
                         <p class="text-medium-gray leading-relaxed mb-4">
-                            Dr. Efi Kessous is board-certified in Family Medicine and currently practices Primary and urgent care medicine at Montgomery Medical Clinic. He is also an Assistant professor and a faculty member at The George Washington University School of Medicine & Health Sciences.
+                            Dr. Efi Kessous is board-certified in Family Medicine and practices primary and urgent care medicine at Montgomery Medical Clinic. He is also an Assistant Professor and faculty member at The George Washington University School of Medicine & Health Sciences.
+                        </p>
+                        <p class="text-medium-gray leading-relaxed mb-4">
+                            His clinical interests include procedural family medicine, injury management, women's health, occupational medicine, and travel medicine. Dr. Kessous is committed to providing comprehensive, patient-centered care for individuals and families.
                         </p>
                         <p class="text-medium-gray leading-relaxed">
-                            His clinical interests include Procedural Family medicine, injuries and lacerations, women's health, Occupational and travel medicine. He is currently a member of the American Academy of Family Physicians and the FAA aviation medical examiners.
+                            He is a member of the American Academy of Family Physicians and serves as a designated FAA aviation medical examiner, bringing a diverse skill set to patient care.
                         </p>
                     </div>
                 </div>
@@ -228,13 +274,16 @@
                 <div class="doctor-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="doctor-image"></div>
                     <div class="doctor-info">
-                        <h3 class="doctor-name">Dr. Jonathan Lawless</h3>
+                        <h3 class="doctor-name">Dr. Jonathan Lawless, DO</h3>
                         <p class="doctor-title">Board-Certified in Family & Sports Medicine</p>
                         <p class="text-medium-gray leading-relaxed mb-4">
-                            Dr. Lawless is board-certified in family medicine and sports medicine. He completed his training at Northwell Plainview Hospital in Plainview, NY. He graduated from medical school at Lake Erie College of Osteopathic Medicine in 2012.
+                            Dr. Lawless is dual board-certified in family medicine and sports medicine. He completed his training at Northwell Plainview Hospital in Plainview, NY, and graduated from Lake Erie College of Osteopathic Medicine in 2012.
+                        </p>
+                        <p class="text-medium-gray leading-relaxed mb-4">
+                            His comprehensive training includes a traditional rotating internship at UPMC Mercy Hospital in Pittsburgh, PA. He was appointed as a teaching associate in family medicine at Hofstra Northwell School of Medicine during his sports medicine fellowship.
                         </p>
                         <p class="text-medium-gray leading-relaxed">
-                            His skills include musculoskeletal care, diagnostic musculoskeletal ultrasound, ultrasound-guided musculoskeletal injections, osteopathic manipulative treatment, and trigger point injections.
+                            Dr. Lawless' expertise includes musculoskeletal care, diagnostic musculoskeletal ultrasound, ultrasound-guided injections, osteopathic manipulative treatment, and trigger point injections, providing comprehensive care for acute and chronic conditions.
                         </p>
                     </div>
                 </div>
@@ -265,15 +314,17 @@
         <div class="container mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 mb-12">
                 <div class="lg:col-span-1">
-                    <img src="https://mmccare.com/wp-content/uploads/2016/09/top-logo-with-text.png" alt="Logo" class="h-16 w-auto bg-white p-3 rounded-xl mb-6">
+                    <img src="../images/Logo.png" alt="Montgomery Medical Clinic Logo" class="h-16 w-auto mb-6">
                     <p class="text-gray-400">Your trusted partner for comprehensive healthcare in Gaithersburg, Maryland.</p>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold text-brand-orange mb-4">Services</h3>
                     <ul class="space-y-3 text-gray-300">
                         <li><a href="urgent-primary-care.html" class="hover:text-white transition-colors">Urgent & Primary Care</a></li>
-                        <li><a href="sports-medicine.html" class="hover:text-white transition-colors">Sports Medicine</a></li>
+                        <li><a href="sports-medicine.html" class="hover:text-white transition-colors">Sports Medicine & Physical Therapy</a></li>
                         <li><a href="dermatology.html" class="hover:text-white transition-colors">Dermatology</a></li>
+                        <li><a href="nutrition-wellness.html" class="hover:text-white transition-colors">Nutrition + Wellness</a></li>
+                        <li><a href="occupational-health.html" class="hover:text-white transition-colors">Occupational Health</a></li>
                     </ul>
                 </div>
                 <div>
@@ -288,19 +339,48 @@
                     <h3 class="text-xl font-bold text-brand-orange mb-4">Contact</h3>
                     <ul class="space-y-3 text-gray-300">
                         <li>800 S Frederick Ave<br>Suite 110, Gaithersburg, MD</li>
-                        <li><a href="tel:3014532273" class="hover:text-white">(301) 453-2273</a></li>
+                        <li>Phone: <a href="tel:3012082273" class="hover:text-white">(301) 208-2273</a></li>
+                        <li>Text: <a href="sms:3012052293" class="hover:text-white">(301) 205-2293</a></li>
+                        <li>Email: <a href="mailto:providers@mmccare.com" class="hover:text-white">providers@mmccare.com</a></li>
                         <li>Fax: 855-313-1249</li>
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
-                <p>&copy; 2025 Montgomery Medical Clinic. All Rights Reserved.</p>
+            <div class="pt-8 border-t border-gray-800">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="flex items-center gap-6">
+                        <a href="https://www.instagram.com/montgomerymedclinic" target="_blank" class="text-gray-400 hover:text-brand-orange transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/montgomerymedclinic" target="_blank" class="text-gray-400 hover:text-brand-orange transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="text-center text-gray-500 text-sm">
+                        <p>&copy; 2025 Montgomery Medical Clinic. All Rights Reserved.</p>
+                    </div>
+                    <div>
+                        <a href="careers.html" class="text-gray-400 hover:text-brand-orange transition-colors font-semibold">
+                            Careers
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+        });
+    </script>
 
 </body>
 </html>

@@ -1,0 +1,90 @@
+/* ===== SERVICES DROPDOWN - PURE CSS SOLUTION ===== */
+.services-dropdown-wrapper {
+    position: relative;
+}
+
+#services-button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    font-weight: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+
+#services-arrow {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* The dropdown - PURE CSS HOVER */
+#services-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    width: 300px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 2px solid #0d47a1;
+    z-index: 99999;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Show on hover - CRITICAL CSS */
+.services-dropdown-wrapper:hover #services-dropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateX(-50%) translateY(0) !important;
+}
+
+/* Arrow pointer */
+#services-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #0d47a1;
+}
+
+/* Dropdown links */
+#services-dropdown .dropdown-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #212121;
+    font-weight: 600;
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+#services-dropdown .dropdown-link:hover {
+    background-color: #f0f4f8;
+    color: #0d47a1;
+    border-left-color: #ff8f00;
+    padding-left: 1.75rem;
+}
+
+/* Arrow rotation on hover */
+.services-dropdown-wrapper:hover #services-arrow {
+    transform: rotate(180deg);
+}

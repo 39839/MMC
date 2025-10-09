@@ -76,14 +76,14 @@
 
                 <div class="hidden lg:flex items-center gap-8 xl:gap-10 flex-1 justify-center">
                     <a href="../index.html" class="nav-link">Home</a>
-                    <div class="relative group">
-                        <button class="nav-link flex items-center gap-2">
+                    <div class="services-dropdown-wrapper relative">
+                        <button class="nav-link flex items-center gap-2" id="services-button">
                             Services
-                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 transition-transform" id="services-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
-                        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-80 bg-white rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border-2 border-brand-blue overflow-hidden">
+                        <div class="services-dropdown" id="services-dropdown">
                             <div class="py-2">
                                 <a href="urgent-primary-care.html" class="dropdown-link">Urgent & Primary Care</a>
                                 <a href="sports-medicine.html" class="dropdown-link">Sports Medicine & Physical Therapy</a>
@@ -251,6 +251,7 @@
     </footer>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
     <script>
         AOS.init({
             duration: 800,
