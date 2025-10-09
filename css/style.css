@@ -42,10 +42,11 @@
     box-sizing: border-box;
 }
 
-/* SIMPLE SCROLL FIX */
+/* COMPREHENSIVE SCROLL FIX - Prevents AOS animation overflow */
 html, body {
     max-width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip; /* Modern browsers: doesn't create scroll context */
+    overflow-y: auto; /* Allow vertical scrolling */
 }
 
 html {
@@ -76,9 +77,25 @@ a {
 }
 
 /* Prevent horizontal overflow on all containers */
-section, div, header, footer {
+section, div, footer {
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip; /* Use clip instead of hidden */
+}
+
+/* Exception: header must allow dropdown to overflow */
+header {
+    max-width: 100%;
+    overflow: visible !important; /* Critical: Prevents dropdown clipping */
+}
+
+/* Ensure header tag specifically allows overflow */
+header.glass-effect {
+    overflow: visible !important;
+}
+
+/* Specifically target sections with AOS animations */
+section[data-aos], div[data-aos] {
+    overflow: clip;
 }
 
 /* ===== HOSPITAL HEADER STYLING ===== */
@@ -89,6 +106,16 @@ section, div, header, footer {
     border-bottom: 1px solid #e0e0e0;
     width: 100%;
     max-width: 100vw;
+    position: relative;
+    z-index: 9999; /* Increased for dropdown visibility */
+    overflow: visible !important; /* Critical: Allow dropdown to extend beyond header */
+}
+
+/* Ensure nav allows dropdown to extend */
+header nav {
+    position: relative;
+    z-index: 1001;
+    overflow: visible !important;
 }
 
 .nav-link {
@@ -154,6 +181,7 @@ section, div, header, footer {
     background: linear-gradient(135deg, #ffffff 0%, #f5f9ff 100%);
     position: relative;
     overflow: hidden;
+    z-index: 1; /* Explicitly low z-index to stay below header and dropdown */
 }
 
 /* Medical Grid Pattern */
@@ -863,6 +891,8 @@ html {
 /* ===== SERVICES DROPDOWN MENU - SIMPLIFIED & WORKING ===== */
 .services-dropdown-wrapper {
     position: relative;
+    overflow: visible !important; /* Critical: Allow dropdown to extend */
+    z-index: 10001; /* Ensure wrapper is above everything */
 }
 
 #services-button {
@@ -888,19 +918,20 @@ html {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    width: 300px;
+    width: 340px; /* Wider for comfortable text spacing */
     background: white;
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     border: 2px solid var(--medical-blue);
-    z-index: 9999;
-    margin-top: 0.5rem;
+    z-index: 99999 !important; /* Much higher to override all stacking contexts */
+    margin-top: 0;
+    padding: 0.75rem 0; /* More vertical padding for aesthetics */
     
     /* Initially hidden */
     opacity: 0;
     visibility: hidden;
     transform: translateX(-50%) translateY(-10px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     pointer-events: none;
 }
 
@@ -943,19 +974,25 @@ html {
     pointer-events: auto;
 }
 
-/* Dropdown links */
+/* Dropdown links - Enhanced aesthetics */
 .services-dropdown .dropdown-link {
     display: block;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.5rem; /* Comfortable padding for readability */
     color: var(--dark-gray);
     font-weight: 600;
+    font-size: 0.9375rem; /* 15px - slightly smaller for better fit */
     text-decoration: none;
     border-left: 4px solid transparent;
     transition: all 0.2s ease;
+    white-space: normal; /* Allow text wrapping for longer medical terms */
+    word-break: normal; /* Natural word breaking */
+    line-height: 1.5; /* Pleasant line height for readability */
+    letter-spacing: -0.01em; /* Tighter letter spacing for better fit */
+    overflow-wrap: break-word; /* Prevent overflow with long words */
 }
 
 .services-dropdown .dropdown-link:hover {
-    background-color: #f8f9fa;
+    background-color: var(--light-blue-bg);
     color: var(--medical-blue);
     border-left-color: var(--medical-orange);
     transform: translateX(4px);
@@ -978,52 +1015,29 @@ html {
 }
 
 /* ===== ANIMATION SCROLLING FIX ===== */
-/* Only apply during active animations to prevent breaking interactions */
-[data-aos].aos-animate:not(.animation-complete) {
-    user-select: none !important;
-    -webkit-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    /* Don't disable pointer events completely, handle via JS */
-    overflow: hidden;
+/* Prevent AOS elements from creating unwanted scroll areas */
+[data-aos] {
+    /* Clip overflow during transforms without affecting content */
+    overflow: clip;
 }
 
-/* Re-enable everything after animation completes */
-[data-aos].animation-complete {
-    user-select: auto !important;
-    -webkit-user-select: auto !important;
-    -moz-user-select: auto !important;
-    -ms-user-select: auto !important;
-    overflow: visible !important;
+/* During animation, ensure no scrollable overflow */
+[data-aos].aos-animate {
+    overflow: clip !important;
 }
 
-/* Ensure clickable elements work properly */
-[data-aos] a,
-[data-aos] button,
-[data-aos] input,
-[data-aos] textarea,
-[data-aos] select,
-[data-aos] .btn {
-    pointer-events: auto !important;
+/* After animation completes, restore normal overflow */
+[data-aos].aos-animate.aos-initialized {
+    overflow: visible;
 }
 
-/* Temporarily disable interactions only during active animation */
-[data-aos].aos-animate:not(.animation-complete) a,
-[data-aos].aos-animate:not(.animation-complete) button,
-[data-aos].aos-animate:not(.animation-complete) input,
-[data-aos].aos-animate:not(.animation-complete) textarea,
-[data-aos].aos-animate:not(.animation-complete) select,
-[data-aos].aos-animate:not(.animation-complete) .btn {
-    pointer-events: none !important;
-}
-
-/* Smooth scroll behavior improvements */
-[data-aos].aos-animate:not(.animation-complete) {
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: auto;
-}
-
-/* Ensure dropdown stays on top */
+/* Ensure dropdown stays on top of everything */
 .services-dropdown {
-    z-index: 9999 !important;
+    z-index: 10000 !important;
+}
+
+/* Ensure wrapper allows dropdown to extend beyond */
+.services-dropdown-wrapper {
+    position: relative;
+    z-index: auto; /* Don't create new stacking context */
 }

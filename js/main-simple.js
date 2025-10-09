@@ -3,14 +3,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('MMC Website Loaded');
     
-    // Initialize AOS (Animate on Scroll)
+    // Initialize AOS (Animate on Scroll) - Delayed slightly to prevent flicker with dropdown
     if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
-            easing: 'ease-in-out'
-        });
+        // Small delay ensures header and dropdown are rendered before AOS animations trigger
+        setTimeout(() => {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-in-out'
+            });
+        }, 150); // 150ms delay to let DOM stabilize
     }
 
     // SERVICES DROPDOWN - Mobile Click Only (CSS handles hover)
@@ -31,15 +34,22 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.innerWidth <= 1024) {
                 isOpen = !isOpen;
                 if (isOpen) {
+                    servicesDropdown.style.display = 'block';
+                    // Force reflow for transition
+                    servicesDropdown.offsetHeight;
                     servicesDropdown.style.opacity = '1';
                     servicesDropdown.style.visibility = 'visible';
                     servicesDropdown.style.pointerEvents = 'auto';
                     servicesDropdown.style.transform = 'translateX(-50%) translateY(0)';
                 } else {
-                    servicesDropdown.style.opacity = '';
-                    servicesDropdown.style.visibility = '';
-                    servicesDropdown.style.pointerEvents = '';
-                    servicesDropdown.style.transform = '';
+                    servicesDropdown.style.opacity = '0';
+                    servicesDropdown.style.visibility = 'hidden';
+                    servicesDropdown.style.pointerEvents = 'none';
+                    servicesDropdown.style.transform = 'translateX(-50%) translateY(-10px)';
+                    // After transition, reset display to match CSS (hide completely)
+                    setTimeout(() => {
+                        servicesDropdown.style.display = '';
+                    }, 300); // Match transition duration
                 }
                 console.log('Mobile dropdown toggled:', isOpen);
             }
@@ -49,10 +59,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('click', function(e) {
             if (isOpen && !servicesButton.contains(e.target) && !servicesDropdown.contains(e.target)) {
                 isOpen = false;
-                servicesDropdown.style.opacity = '';
-                servicesDropdown.style.visibility = '';
-                servicesDropdown.style.pointerEvents = '';
-                servicesDropdown.style.transform = '';
+                servicesDropdown.style.opacity = '0';
+                servicesDropdown.style.visibility = 'hidden';
+                servicesDropdown.style.pointerEvents = 'none';
+                servicesDropdown.style.transform = 'translateX(-50%) translateY(-10px)';
+                setTimeout(() => {
+                    servicesDropdown.style.display = '';
+                }, 300);
                 console.log('Dropdown closed (outside click)');
             }
         });
@@ -135,6 +148,7 @@ window.testDropdown = function() {
     if (dropdown) {
         console.log('Testing dropdown visibility...');
         dropdown.style.cssText = `
+            display: block !important;
             opacity: 1 !important;
             visibility: visible !important;
             pointer-events: auto !important;
