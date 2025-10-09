@@ -182,6 +182,7 @@ header nav {
     position: relative;
     overflow: hidden;
     z-index: 1; /* Explicitly low z-index to stay below header and dropdown */
+    isolation: isolate; /* Create new stacking context to prevent z-index conflicts */
 }
 
 /* Medical Grid Pattern */
@@ -888,12 +889,8 @@ html {
     box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2);
 }
 
-/* ===== SERVICES DROPDOWN MENU - SIMPLIFIED & WORKING ===== */
-.services-dropdown-wrapper {
-    position: relative;
-    overflow: visible !important; /* Critical: Allow dropdown to extend */
-    z-index: 10001; /* Ensure wrapper is above everything */
-}
+/* ===== SERVICES DROPDOWN - Base Button Styles ===== */
+/* Note: Main dropdown styles are in dropdown-fix.css for Safari compatibility */
 
 #services-button {
     cursor: pointer;
@@ -906,112 +903,6 @@ html {
     font-weight: inherit;
     color: inherit;
     font-size: inherit;
-}
-
-#services-arrow {
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.services-dropdown {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 340px; /* Wider for comfortable text spacing */
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    border: 2px solid var(--medical-blue);
-    z-index: 99999 !important; /* Much higher to override all stacking contexts */
-    margin-top: 0;
-    padding: 0.75rem 0; /* More vertical padding for aesthetics */
-    
-    /* Initially hidden */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
-    pointer-events: none;
-}
-
-/* Arrow pointer */
-.services-dropdown::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--medical-blue);
-}
-
-/* Show state - Enhanced for better compatibility */
-.services-dropdown.show {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateX(-50%) translateY(0) !important;
-    pointer-events: auto !important;
-    display: block !important;
-}
-
-/* Hover state - Direct CSS fallback */
-.services-dropdown-wrapper:hover .services-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
-}
-
-/* Keep dropdown visible when hovering over it */
-.services-dropdown:hover {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
-}
-
-/* Dropdown links - Enhanced aesthetics */
-.services-dropdown .dropdown-link {
-    display: block;
-    padding: 1rem 1.5rem; /* Comfortable padding for readability */
-    color: var(--dark-gray);
-    font-weight: 600;
-    font-size: 0.9375rem; /* 15px - slightly smaller for better fit */
-    text-decoration: none;
-    border-left: 4px solid transparent;
-    transition: all 0.2s ease;
-    white-space: normal; /* Allow text wrapping for longer medical terms */
-    word-break: normal; /* Natural word breaking */
-    line-height: 1.5; /* Pleasant line height for readability */
-    letter-spacing: -0.01em; /* Tighter letter spacing for better fit */
-    overflow-wrap: break-word; /* Prevent overflow with long words */
-}
-
-.services-dropdown .dropdown-link:hover {
-    background-color: var(--light-blue-bg);
-    color: var(--medical-blue);
-    border-left-color: var(--medical-orange);
-    transform: translateX(4px);
-}
-
-.services-dropdown .dropdown-link:first-child {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
-.services-dropdown .dropdown-link:last-child {
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-
-/* Arrow rotation */
-.services-dropdown-wrapper:hover #services-arrow,
-.services-dropdown-wrapper.active #services-arrow {
-    transform: rotate(180deg);
 }
 
 /* ===== ANIMATION SCROLLING FIX ===== */

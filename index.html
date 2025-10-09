@@ -136,7 +136,7 @@
         </div>
     </div>
 
-    <header class="glass-effect sticky top-0" style="z-index: 9999; overflow: visible !important;">
+    <header class="glass-effect sticky top-0" style="z-index: 9999; overflow: visible !important; transform: translateZ(0); -webkit-transform: translateZ(0);">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
             <nav class="flex items-center justify-between py-4 lg:py-5 gap-4 lg:gap-8">
                 <div class="flex items-center">
@@ -155,13 +155,11 @@
                             </svg>
                         </button>
                         <div class="services-dropdown" id="services-dropdown">
-                            <div class="py-2">
-                                <a href="pages/urgent-primary-care.html" class="dropdown-link">Urgent & Primary Care</a>
-                                <a href="pages/sports-medicine.html" class="dropdown-link">Sports Medicine & Physical Therapy</a>
-                                <a href="pages/dermatology.html" class="dropdown-link">Dermatology</a>
-                                <a href="pages/nutrition-wellness.html" class="dropdown-link">Nutrition + Wellness</a>
-                                <a href="pages/occupational-health.html" class="dropdown-link">Occupational Health</a>
-                            </div>
+                            <a href="pages/urgent-primary-care.html" class="dropdown-link">Urgent & Primary Care</a>
+                            <a href="pages/sports-medicine.html" class="dropdown-link">Sports Medicine & Physical Therapy</a>
+                            <a href="pages/dermatology.html" class="dropdown-link">Dermatology</a>
+                            <a href="pages/nutrition-wellness.html" class="dropdown-link">Nutrition + Wellness</a>
+                            <a href="pages/occupational-health.html" class="dropdown-link">Occupational Health</a>
                         </div>
                     </div>
                     <a href="pages/about.html" class="nav-link">About</a>
@@ -204,7 +202,7 @@
         </div>
     </header>
 
-    <section class="relative text-white min-h-[50vh] md:min-h-[65vh] lg:min-h-[85vh] flex items-center py-12 md:py-20" style="z-index: 1; position: relative;" data-aos="fade-in">
+    <section class="relative text-white min-h-[50vh] md:min-h-[65vh] lg:min-h-[85vh] flex items-center py-12 md:py-20" style="z-index: 1; position: relative; isolation: isolate;" data-aos="fade-in">
         <img src="images/PhotoWide.jpeg" alt="Team of doctors at Montgomery Medical Clinic" class="absolute inset-0 w-full h-full object-cover z-0">
         
         <div class="absolute inset-0 bg-gradient-to-r from-dark-gray/80 via-dark-gray/60 via-30% to-transparent" style="z-index: 10;"></div>
