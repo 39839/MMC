@@ -13,6 +13,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dropdown-fix.css">
 
     <script>
         tailwind.config = {
@@ -65,7 +66,7 @@
         </div>
     </div>
 
-    <header class="glass-effect sticky top-0 z-50">
+    <header class="glass-effect sticky top-0" style="z-index: 9999; overflow: visible !important; transform: translateZ(0); -webkit-transform: translateZ(0);">
         <div class="container mx-auto px-6 lg:px-8 max-w-[1400px]">
             <nav class="flex items-center justify-between py-5 gap-8">
                 <div class="flex items-center">
@@ -76,7 +77,7 @@
 
                 <div class="hidden lg:flex items-center gap-8 xl:gap-10 flex-1 justify-center">
                     <a href="../index.html" class="nav-link">Home</a>
-                    <div class="services-dropdown-wrapper relative">
+                    <div class="services-dropdown-wrapper">
                         <button class="nav-link flex items-center gap-2" id="services-button">
                             Services
                             <svg class="w-4 h-4 transition-transform" id="services-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -84,13 +85,11 @@
                             </svg>
                         </button>
                         <div class="services-dropdown" id="services-dropdown">
-                            <div class="py-2">
-                                <a href="urgent-primary-care.html" class="dropdown-link">Urgent & Primary Care</a>
-                                <a href="sports-medicine.html" class="dropdown-link">Sports Medicine & Physical Therapy</a>
-                                <a href="dermatology.html" class="dropdown-link">Dermatology</a>
-                                <a href="nutrition-wellness.html" class="dropdown-link">Nutrition + Wellness</a>
-                                <a href="occupational-health.html" class="dropdown-link">Occupational Health</a>
-                            </div>
+                            <a href="urgent-primary-care.html" class="dropdown-link">Urgent & Primary Care</a>
+                            <a href="sports-medicine.html" class="dropdown-link">Sports Medicine & Physical Therapy</a>
+                            <a href="dermatology.html" class="dropdown-link">Dermatology</a>
+                            <a href="nutrition-wellness.html" class="dropdown-link">Nutrition + Wellness</a>
+                            <a href="occupational-health.html" class="dropdown-link">Occupational Health</a>
                         </div>
                     </div>
                     <a href="about.html" class="nav-link">About</a>

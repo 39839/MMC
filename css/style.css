@@ -123,6 +123,7 @@ header nav {
     font-weight: 600;
     color: var(--dark-gray);
     padding: 1rem 0.25rem;
+    padding-bottom: 0.75rem; /* Less bottom padding so line is lower */
     font-size: 1.05rem;
     letter-spacing: var(--letter-spacing-normal);
     transition: color 0.3s ease;
@@ -131,7 +132,7 @@ header nav {
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: 12px; /* Adjusted position */
+    bottom: 0px; /* Below the element to match Home positioning */
     left: 50%;
     transform: translateX(-50%);
     width: 0;
@@ -899,11 +900,18 @@ html {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0;
+    padding: 1rem 0.25rem 0.75rem;
     font-weight: inherit;
     color: inherit;
     font-size: inherit;
 }
+
+/* Make Services button underline match other nav links */
+.services-dropdown-wrapper {
+    position: relative;
+}
+
+/* Remove duplicate underline - nav-link class already handles it */
 
 /* ===== ANIMATION SCROLLING FIX ===== */
 /* Prevent AOS elements from creating unwanted scroll areas */
