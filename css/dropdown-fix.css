@@ -28,19 +28,19 @@ header nav {
     z-index: 10001;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    padding-bottom: 0.75rem;
-    margin-bottom: -0.75rem; /* Keep layout untouched while extending hover area */
+    /* NO extra padding - keep original position */
 }
 
 
-/* 4. CRITICAL: Dropdown Menu - Centered under button */
+/* 4. CRITICAL: Dropdown Menu - Aligned to left edge of button */
 #services-dropdown {
     position: absolute;
     top: 100%;
-    /* Center the dropdown under the button */
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    -webkit-transform: translateX(-50%) translateY(-10px) translateZ(9999px);
+    /* Align to left edge of button to prevent cutoff */
+    left: 0;
+    right: auto;
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px) translateZ(9999px);
     
     /* IMPORTANT: Wide enough for all medical terms */
     width: 380px;
@@ -55,7 +55,7 @@ header nav {
     
     z-index: 999999 !important;
     
-    margin-top: 0;
+    margin-top: 0.5rem; /* Small gap but bridged by pseudo-element */
     padding: 0.75rem 0;
     
     /* Hidden state */
@@ -72,6 +72,17 @@ header nav {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Invisible bridge between button and dropdown for smooth mouse movement */
+.services-dropdown-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 20px; /* Bridge the gap */
+    z-index: 999998;
+}
+
 /* 5. CRITICAL: Force Hero/Banner Sections to Stay Behind */
 section.page-header,
 section.relative.text-white,
@@ -82,14 +93,17 @@ section[class*="hero"],
     isolation: isolate;
 }
 
-/* 6. Show Dropdown on Hover */
+/* 6. Show Dropdown on Hover WITH SMOOTH FADE */
 .services-dropdown-wrapper:hover #services-dropdown {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    transform: translateX(-70%) translateY(0) !important;
-    -webkit-transform: translateX(-20%) translateY(0) translateZ(9999px) !important;
+    transform: translateY(0) !important;
+    -webkit-transform: translateY(0) translateZ(9999px) !important;
+    transition: opacity 0.2s ease 0s, 
+                visibility 0s linear 0s,
+                transform 0.2s ease 0s !important;
 }
 
 #services-dropdown:hover {
@@ -99,14 +113,21 @@ section[class*="hero"],
     pointer-events: auto !important;
 }
 
-/* 7. Arrow Pointer - Centered above dropdown */
+/* Add delay before dropdown disappears - LONG DELAY FOR USER MOVEMENT */
+.services-dropdown-wrapper #services-dropdown {
+    /* Wait longer before starting to fade out - gives time to move mouse */
+    transition: opacity 0.3s ease 0.6s, 
+                visibility 0s linear 0.9s,
+                transform 0.3s ease 0.6s !important;
+}
+
+/* 7. Arrow Pointer - Positioned near left edge */
 #services-dropdown::before {
     content: '';
     position: absolute;
     top: -10px;
-    /* Center the arrow */
-    left: 50%;
-    transform: translateX(-50%);
+    /* Position arrow near left edge */
+    left: 60px;
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
@@ -206,18 +227,16 @@ section[class*="hero"],
 @media (max-width: 1024px) {
     #services-dropdown {
         width: 340px;
-        /* Keep centered */
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
+        left: 0;
+        transform: translateY(-10px);
     }
     
     #services-dropdown::before {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 60px;
     }
     
     .services-dropdown-wrapper:hover #services-dropdown {
-        transform: translateX(-50%) translateY(0) !important;
+        transform: translateY(0) !important;
     }
     
     #services-dropdown .dropdown-link {
@@ -235,17 +254,20 @@ section[class*="hero"],
 @media (max-width: 640px) {
     #services-dropdown {
         width: calc(100vw - 2rem);
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
+        /* On mobile, position from right edge of screen */
+        left: auto;
+        right: 1rem;
+        transform: translateY(-10px);
     }
     
     #services-dropdown::before {
+        /* Center arrow on mobile */
         left: 50%;
         transform: translateX(-50%);
     }
     
     .services-dropdown-wrapper:hover #services-dropdown {
-        transform: translateX(-50%) translateY(0) !important;
+        transform: translateY(0) !important;
     }
     
     #services-dropdown .dropdown-link {

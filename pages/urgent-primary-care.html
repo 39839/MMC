@@ -12,6 +12,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dropdown-fix.css">
 
     <script>
         tailwind.config = {
@@ -30,6 +31,40 @@
             }
         }
     </script>
+    <style>
+        /* Force dropdown alignment to match home page */
+        #services-dropdown {
+            left: 0 !important;
+            right: auto !important;
+            transform: translateY(-10px) !important;
+        }
+        
+        .services-dropdown-wrapper:hover #services-dropdown {
+            transform: translateY(0) !important;
+        }
+        
+        /* Fix grid cutoff issues */
+        .container {
+            overflow: visible !important;
+        }
+        
+        section {
+            overflow: visible !important;
+        }
+        
+        .grid {
+            overflow: visible !important;
+            padding: 2rem 0 !important;
+        }
+        
+        /* Fix for all cards on this page */
+        .bg-white.p-6,
+        .bg-white.p-4,
+        .feature-item {
+            margin: 0.75rem !important;
+            overflow: visible !important;
+        }
+    </style>
 </head>
 <body class="bg-light-gray text-dark-gray">
 

@@ -12,6 +12,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dropdown-fix.css">
 
     <script>
         tailwind.config = {
@@ -30,6 +31,39 @@
             }
         }
     </script>
+    <style>
+        /* Force dropdown alignment to match home page */
+        #services-dropdown {
+            left: 0 !important;
+            right: auto !important;
+            transform: translateY(-10px) !important;
+        }
+        
+        .services-dropdown-wrapper:hover #services-dropdown {
+            transform: translateY(0) !important;
+        }
+        
+        /* Fix grid cutoff issues */
+        .container {
+            overflow: visible !important;
+        }
+        
+        section {
+            overflow: visible !important;
+        }
+        
+        .grid {
+            overflow: visible !important;
+            padding: 2rem 0 !important;
+        }
+        
+        /* Fix for all cards on this page */
+        .bg-white.p-6,
+        .bg-white.p-4 {
+            margin: 0.75rem !important;
+            overflow: visible !important;
+        }
+    </style>
 </head>
 <body class="bg-light-gray text-dark-gray">
 
@@ -228,6 +262,31 @@
                 </div>
                 <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
                     <h3 class="font-bold text-lg mb-2">• Pediatric Dermatology</h3>
+                </div>
+            </div>
+
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl lg:text-5xl font-black mb-6">Cosmetic Procedures</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+                    <h3 class="font-bold text-lg mb-2">• Botox Injections</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+                    <h3 class="font-bold text-lg mb-2">• Dermal Fillers</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+                    <h3 class="font-bold text-lg mb-2">• Microneedling</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+                    <h3 class="font-bold text-lg mb-2">• VI Beam Laser</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+                    <h3 class="font-bold text-lg mb-2">• Chemical Peels</h3>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md" data-aos="fade-up">
+                    <h3 class="font-bold text-lg mb-2">• Skin Rejuvenation Treatments</h3>
                 </div>
             </div>
 

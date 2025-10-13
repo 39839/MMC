@@ -99,6 +99,25 @@
         .slideshow-dot:hover {
             background: #1976d2;
         }
+        
+        /* Fix service cards hover cutoff */
+        #services {
+            overflow: visible;
+        }
+        
+        #services .container {
+            overflow: visible;
+        }
+        
+        #services .grid {
+            padding: 1.5rem 0;
+            overflow: visible;
+        }
+        
+        /* Individual cards need room for hover effects */
+        #services .card {
+            margin: 0.75rem;
+        }
     </style>
 </head>
 <body class="bg-light-gray text-dark-gray">
@@ -253,7 +272,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <span class="inline-block bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Now Available</span>
+                        <span class="inline-block bg-orange-300 text-orange-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Available Today</span>
                         <h3 class="text-2xl lg:text-3xl font-extrabold text-dark-gray mb-3 leading-tight">
                             Seasonal <span class="text-brand-blue">Flu Shots</span> Are Here
                         </h3>
@@ -279,7 +298,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <span class="inline-block bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Available Today</span>
+                        <span class="inline-block bg-orange-300 text-orange-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-2">Available Today</span>
                         <h3 class="text-2xl lg:text-3xl font-extrabold text-dark-gray mb-3 leading-tight">
                             Same Day <span class="text-brand-blue">Urgent Care</span> Appointments
                         </h3>
