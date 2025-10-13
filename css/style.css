@@ -281,6 +281,14 @@ header nav {
     box-shadow: 0 12px 24px rgba(0, 33, 113, 0.2);
 }
 
+.card[data-service="acupuncture"] {
+    border-top: 4px solid #4caf50;
+}
+
+.card[data-service="acupuncture"]:hover {
+    box-shadow: 0 12px 24px rgba(76, 175, 80, 0.2);
+}
+
 /* Medical Icon Styling with Brand Colors */
 .icon-wrap {
     transition: all 0.3s ease;
@@ -328,6 +336,10 @@ header nav {
 
 .card[data-service="occupational"] .icon-wrap {
     background: linear-gradient(135deg, var(--deep-blue) 0%, var(--medical-blue) 100%);
+}
+
+.card[data-service="acupuncture"] .icon-wrap {
+    background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
 }
 
 @media (hover: hover) {
