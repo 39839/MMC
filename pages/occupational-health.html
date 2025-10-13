@@ -54,6 +54,7 @@
         .specialized-services-container {
             padding-top: 2rem;
             padding-bottom: 2rem;
+            overflow: visible; /* Allow hover state to render outside the grid */
         }
 
         /* Ensure individual grid items don't get cut off */
@@ -68,6 +69,73 @@
         .expandable-section > button,
         .expandable-section > div {
             overflow: visible;
+        }
+
+        /* Override global AOS overflow clipping for these interactive sections */
+        .occupational-services-grid > .group[data-aos],
+        .specialized-services-container[data-aos] {
+            overflow: visible !important;
+        }
+
+        /* Ensure icon rows allow shadows to render */
+        .occupational-feature-header {
+            overflow: visible;
+        }
+
+        .occupational-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: linear-gradient(135deg, var(--medical-blue, #0d47a1) 0%, #1e63c6 100%);
+            border: 1px solid var(--icon-border, rgba(13, 71, 161, 0.22));
+            box-shadow: var(--icon-shadow, 0 16px 26px rgba(13, 71, 161, 0.18));
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: visible;
+        }
+
+        .occupational-icon svg {
+            width: 2.25rem;
+            height: 2.25rem;
+            color: currentColor;
+        }
+
+        .occupational-icon--blue {
+            background: linear-gradient(135deg, #0d47a1 0%, #1e63c6 100%);
+            --icon-border: rgba(13, 71, 161, 0.28);
+            --icon-shadow: 0 18px 32px rgba(13, 71, 161, 0.2);
+            --icon-shadow-hover: 0 24px 44px rgba(13, 71, 161, 0.32);
+        }
+
+        .occupational-icon--orange {
+            background: linear-gradient(135deg, #ff8f00 0%, #ffb74d 100%);
+            --icon-border: rgba(255, 143, 0, 0.3);
+            --icon-shadow: 0 18px 32px rgba(255, 143, 0, 0.24);
+            --icon-shadow-hover: 0 24px 44px rgba(255, 143, 0, 0.34);
+        }
+
+        .occupational-icon--purple {
+            background: linear-gradient(135deg, #3949ab 0%, #5c6bc0 100%);
+            --icon-border: rgba(70, 86, 192, 0.28);
+            --icon-shadow: 0 18px 32px rgba(69, 90, 168, 0.22);
+            --icon-shadow-hover: 0 24px 44px rgba(69, 90, 168, 0.32);
+        }
+
+        .occupational-icon--green {
+            background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+            --icon-border: rgba(46, 125, 50, 0.26);
+            --icon-shadow: 0 18px 32px rgba(46, 125, 50, 0.22);
+            --icon-shadow-hover: 0 24px 44px rgba(46, 125, 50, 0.32);
+        }
+
+        .group:hover .occupational-icon,
+        .expandable-section:hover .occupational-icon,
+        .expandable-section button:hover .occupational-icon {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: var(--icon-shadow-hover, 0 22px 36px rgba(13, 71, 161, 0.28));
         }
 
         /* Bring hovered items to the front */
@@ -200,9 +268,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 mb-24 max-w-5xl mx-auto occupational-services-grid">
                 <div class="group" data-aos="fade-up">
                     <div class="relative h-full bg-gradient-to-br from-blue-50 via-white to-blue-50 p-8 lg:p-10 rounded-3xl border-2 border-blue-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="flex items-start gap-6 mb-6">
-                            <div class="flex-shrink-0 w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                                <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-start gap-6 mb-6 occupational-feature-header">
+                            <div class="flex-shrink-0 occupational-icon occupational-icon--blue">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
                                 </svg>
                             </div>
@@ -217,9 +285,9 @@
 
                 <div class="group" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative h-full bg-gradient-to-br from-orange-50 via-white to-orange-50 p-8 lg:p-10 rounded-3xl border-2 border-orange-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="flex items-start gap-6 mb-6">
-                            <div class="flex-shrink-0 w-16 h-16 bg-brand-orange rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                                <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-start gap-6 mb-6 occupational-feature-header">
+                            <div class="flex-shrink-0 occupational-icon occupational-icon--orange">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                                 </svg>
                             </div>
@@ -234,9 +302,9 @@
 
                 <div class="group" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative h-full bg-gradient-to-br from-purple-50 via-white to-purple-50 p-8 lg:p-10 rounded-3xl border-2 border-purple-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="flex items-start gap-6 mb-6">
-                            <div class="flex-shrink-0 w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                                <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-start gap-6 mb-6 occupational-feature-header">
+                            <div class="flex-shrink-0 occupational-icon occupational-icon--purple">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                                 </svg>
                             </div>
@@ -251,9 +319,9 @@
 
                 <div class="group" data-aos="fade-up" data-aos-delay="300">
                     <div class="relative h-full bg-gradient-to-br from-green-50 via-white to-green-50 p-8 lg:p-10 rounded-3xl border-2 border-green-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-                        <div class="flex items-start gap-6 mb-6">
-                            <div class="flex-shrink-0 w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                                <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-start gap-6 mb-6 occupational-feature-header">
+                            <div class="flex-shrink-0 occupational-icon occupational-icon--green">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                                 </svg>
                             </div>
@@ -275,9 +343,9 @@
 
                 <div class="bg-white rounded-3xl shadow-lg border-2 border-blue-100 transition-all hover:shadow-xl expandable-section">
                     <button onclick="toggleDropdown('faa')" class="w-full flex items-center justify-between p-8 lg:p-10 text-left hover:bg-blue-50 transition-all group">
-                        <div class="flex items-center gap-6 flex-1">
-                            <div class="flex-shrink-0 w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                                <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-6 flex-1 occupational-feature-header">
+                            <div class="flex-shrink-0 occupational-icon occupational-icon--blue">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
                                 </svg>
                             </div>
@@ -350,9 +418,9 @@
 
                 <div class="bg-white rounded-3xl shadow-lg border-2 border-green-100 transition-all hover:shadow-xl expandable-section">
                     <button onclick="toggleDropdown('immigration')" class="w-full flex items-center justify-between p-8 lg:p-10 text-left hover:bg-green-50 transition-all group">
-                        <div class="flex items-center gap-6 flex-1">
-                            <div class="flex-shrink-0 w-16 h-16 bg-brand-blue rounded-2xl flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                                <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="flex items-center gap-6 flex-1 occupational-feature-header">
+                            <div class="flex-shrink-0 occupational-icon occupational-icon--green">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                                 </svg>
                             </div>
