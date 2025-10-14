@@ -135,6 +135,24 @@ section[data-aos], div[data-aos] {
     overflow: clip;
 }
 
+/* ===== STICKY TOP CONTACT BAR ===== */
+.top-contact-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    width: 100%;
+    background: #0d47a1; /* Brand blue fallback */
+}
+
+/* Ensure contact bar text color */
+.bg-brand-blue {
+    background-color: #0d47a1 !important;
+}
+
+.border-brand-orange {
+    border-color: #ff8f00 !important;
+}
+
 /* ===== HOSPITAL HEADER STYLING ===== */
 .glass-effect {
     background: rgba(255, 255, 255, 0.9);
@@ -143,9 +161,16 @@ section[data-aos], div[data-aos] {
     border-bottom: 1px solid #e0e0e0;
     width: 100%;
     max-width: 100vw;
-    position: relative;
-    z-index: 9999; /* Increased for dropdown visibility */
-    overflow: visible !important; /* Critical: Allow dropdown to extend beyond header */
+    position: sticky;
+    top: 52px; /* Below the contact bar */
+    z-index: 9999;
+    overflow: visible !important;
+}
+
+@media (min-width: 640px) {
+    .glass-effect {
+        top: 56px; /* Adjust for larger contact bar on mobile */
+    }
 }
 
 /* Ensure nav allows dropdown to extend */
