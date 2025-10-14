@@ -39,104 +39,8 @@
 </head>
 <body class="bg-light-gray text-dark-gray">
 
-<!-- Top Contact Bar -->
-<div class="top-contact-bar bg-brand-blue text-white py-2.5 sm:py-3.5 text-sm border-b-4 border-brand-orange overflow-hidden">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-full">
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 md:gap-8">
-            <a href="tel:3012082273" class="hover:text-brand-orange transition-colors flex items-center gap-2 font-semibold text-sm sm:text-base">
-                <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-                </svg>
-                <span class="tracking-wide">Call: (301) 208-2273</span>
-            </a>
-            
-            <div class="hidden sm:block w-px h-6 bg-white/30"></div>
-            
-            <a href="sms:3012052293" class="hover:text-brand-orange transition-colors flex items-center gap-2 font-semibold text-sm sm:text-base">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                </svg>
-                <span class="tracking-wide">Text: (301) 205-2293</span>
-            </a>
-            
-            <div class="hidden md:block w-px h-6 bg-white/30"></div>
-            
-            <div class="hidden md:flex items-center gap-2 font-semibold text-xs md:text-sm lg:text-base flex-shrink-0">
-                <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-                <span class="tracking-wide whitespace-nowrap text-xs md:text-sm">Mon-Thu 8am-7pm | Fri 8am-6pm | Sat-Sun 8am-1pm</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Main Navigation Header -->
-<header class="glass-effect sticky top-0" style="z-index: 9999; overflow: visible !important; transform: translateZ(0); -webkit-transform: translateZ(0);">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
-        <nav class="flex items-center justify-between py-3 gap-2">
-            <div class="flex items-center flex-shrink-0" style="padding: 0.25rem;">
-                <a href="../index.html" class="flex items-center group logo-link" style="margin-right: 2rem;">
-                    <img src="../images/Logo.png" alt="Montgomery Medical Clinic" class="h-20 w-auto lg:h-24 object-contain transition-transform duration-200 group-hover:scale-105 logo-img" />
-                </a>
-            </div>
-
-            <div class="hidden lg:flex items-center gap-5 xl:gap-6 flex-1">
-                <a href="../index.html" class="nav-link nav-home">Home</a>
-                <div class="services-dropdown-wrapper relative">
-                    <button class="nav-link flex items-center gap-2" id="services-button">
-                        <strong>Services</strong>
-                        <svg class="w-4 h-4 transition-transform" id="services-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                        </svg>
-                    </button>
-                    <div class="services-dropdown" id="services-dropdown">
-                        <a href="urgent-primary-care.html" class="dropdown-link nav-urgent">Urgent & Primary Care</a>
-                        <a href="sports-medicine.html" class="dropdown-link nav-sports active">Sports Medicine & Physical Therapy</a>
-                        <a href="dermatology.html" class="dropdown-link nav-derma">Dermatology</a>
-                        <a href="nutrition-wellness.html" class="dropdown-link nav-wellness">Wellness Center</a>
-                        <a href="occupational-health.html" class="dropdown-link nav-occupational">Occupational Health</a>
-                    </div>
-                </div>
-                <a href="about.html" class="nav-link nav-about">About</a>
-                <a href="insurance.html" class="nav-link nav-insurance">Insurance</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-
-            <div class="flex items-center gap-3 xl:gap-4 flex-shrink-0">
-                <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="hidden lg:inline-flex btn btn-secondary whitespace-nowrap text-sm lg:text-base">
-                    Request Appointment
-                </a>
-                <a href="https://15259-6.portal.athenahealth.com/" target="_blank" class="hidden sm:inline-flex btn btn-primary whitespace-nowrap text-sm lg:text-base">
-                    Patient Portal
-                </a>
-                
-                <button id="mobile-menu-btn" class="lg:hidden p-2 text-dark-gray hover:text-brand-blue transition-colors" aria-label="Toggle menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        
-        <div id="mobile-menu" class="hidden lg:hidden pb-4">
-            <div class="flex flex-col space-y-3">
-                <a href="#" href="../index.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-home">Home</a>
-                <a href="#" href="urgent-primary-care.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-urgent">Urgent & Primary Care</a>
-                <a href="#" href="sports-medicine.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-sports">Sports Medicine</a>
-                <a href="#" href="dermatology.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-derma">Dermatology</a>
-                <a href="#" href="nutrition-wellness.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-wellness">Wellness Center</a>
-                <a href="#" href="occupational-health.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-occupational">Occupational Health</a>
-                <a href="#" href="about.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-about">About</a>
-                <a href="#" href="insurance.html" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-insurance">Insurance</a>
-                <a href="#contact" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded">Contact</a>
-                <a href="https://15259-6.portal.athenahealth.com/" target="_blank" class="sm:hidden btn btn-secondary mt-2">
-                    Patient Portal
-                </a>
-            </div>
-        </div>
-    </div>
-</header>
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
 
 
 
@@ -312,7 +216,7 @@
                     <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="btn btn-secondary px-10 py-4 text-lg">
                         Schedule Appointment
                     </a>
-                    <a href="../index.html#contact" class="btn btn-outline px-10 py-4 text-lg border-white text-white hover:bg-white hover:text-brand-blue">
+                    <a href="#" class="btn btn-outline px-10 py-4 text-lg border-white text-white hover:bg-white hover:text-brand-blue contact-trigger" data-contact-trigger>
                         Contact Us
                     </a>
                 </div>
@@ -321,71 +225,11 @@
     </section>
 
     <!-- FOOTER -->
-        <footer id="contact" class="bg-dark-gray text-white py-12 md:py-20">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
-            <div class="lg:col-span-1">
-                <img src="../images/Logo.png" alt="Montgomery Medical Clinic Logo" class="h-16 w-auto mb-6 footer-logo">
-                <p class="text-gray-400">Your trusted partner for comprehensive healthcare in Gaithersburg, Maryland.</p>
-            </div>
-            <div>
-                <h3 class="text-lg md:text-xl font-bold text-brand-orange mb-3 md:mb-4">Services</h3>
-                <ul class="space-y-3 text-gray-300">
-                    <li><a href="urgent-primary-care.html" class="hover:text-white transition-colors footer-nav-urgent">Urgent & Primary Care</a></li>
-                    <li><a href="sports-medicine.html" class="hover:text-white transition-colors footer-nav-sports">Sports Medicine & Physical Therapy</a></li>
-                    <li><a href="dermatology.html" class="hover:text-white transition-colors footer-nav-derma">Dermatology</a></li>
-                    <li><a href="nutrition-wellness.html" class="hover:text-white transition-colors footer-nav-wellness">Wellness Center</a></li>
-                    <li><a href="occupational-health.html" class="hover:text-white transition-colors footer-nav-occupational">Occupational Health</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-lg md:text-xl font-bold text-brand-orange mb-3 md:mb-4">Hours</h3>
-                <ul class="space-y-3 text-gray-300">
-                    <li>Mon-Thu: 8am - 7pm</li>
-                    <li>Friday: 8am - 6pm</li>
-                    <li>Sat/Sun: 8am - 1pm</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-lg md:text-xl font-bold text-brand-orange mb-3 md:mb-4">Contact</h3>
-                <ul class="space-y-3 text-gray-300">
-                    <li>800 S Frederick Ave<br>Suite 110, Gaithersburg, MD</li>
-                    <li>Phone: <a href="tel:3012082273" class="hover:text-white">(301) 208-2273</a></li>
-                    <li>Text: <a href="sms:3012052293" class="hover:text-white">(301) 205-2293</a></li>
-                    <li>Email: <a href="mailto:providers@mmccare.com" class="hover:text-white">providers@mmccare.com</a></li>
-                    <li>Fax: 855-313-1249</li>
-                </ul>
-            </div>
-        </div>
-        <div class="pt-8 border-t border-gray-800">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex items-center gap-6">
-                    <a href="https://www.instagram.com/montgomerymedclinic" target="_blank" class="text-gray-400 hover:text-brand-orange transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/montgomerymedclinic" target="_blank" class="text-gray-400 hover:text-brand-orange transition-colors">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                </div>
-                <div class="text-center text-gray-500 text-sm">
-                    <p>© 2025 Montgomery Medical Clinic. All Rights Reserved.</p>
-                </div>
-                <div>
-                    <a href="careers.html" class="text-gray-400 hover:text-brand-orange transition-colors font-semibold footer-nav-careers">
-                        Careers
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+            <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    
+    <script src="../js/header-footer-loader.js"></script>
     <script src="../js/main.js"></script>
     <script>
         AOS.init({

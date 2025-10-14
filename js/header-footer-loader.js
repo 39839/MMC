@@ -1,3 +1,7 @@
+let contactBarResizeObserver = null;
+let resizeListenerAttached = false;
+let resizeDebounceTimer = null;
+
 // Load header and footer components
 document.addEventListener('DOMContentLoaded', function() {
     // Determine if we're on the home page or a subpage
@@ -17,6 +21,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateHeaderLinks(basePath, isHomePage);
                 initializeMobileMenu();
                 initializeServicesDropdown();
+                initializeContactModal();
+                updateContactBarOffset();
+                observeContactBarHeight();
+
+                if (!resizeListenerAttached) {
+                    window.addEventListener('resize', handleWindowResize);
+                    window.addEventListener('orientationchange', handleWindowResize);
+                    window.addEventListener('load', updateContactBarOffset);
+                    resizeListenerAttached = true;
+                }
+
+                document.dispatchEvent(new CustomEvent('mmc:header-ready', {
+                    detail: {
+                        basePath,
+                        isHomePage
+                    }
+                }));
             }
         })
         .catch(error => console.error('Error loading header:', error));
@@ -180,4 +201,125 @@ function initializeServicesDropdown() {
             }
         });
     }
+}
+
+function initializeContactModal() {
+    const modal = document.getElementById('contact-modal');
+    const contactTriggers = document.querySelectorAll('[data-contact-trigger]');
+
+    if (!modal || contactTriggers.length === 0) {
+        return;
+    }
+
+    if (modal.parentElement !== document.body) {
+        document.body.appendChild(modal);
+    }
+
+    if (modal.dataset.modalInitialized === 'true') {
+        return;
+    }
+
+    modal.dataset.modalInitialized = 'true';
+
+    const closeButton = modal.querySelector('[data-contact-close]');
+    const contactOptions = modal.querySelectorAll('[data-contact-option]');
+    const body = document.body;
+    const mobileMenu = document.getElementById('mobile-menu');
+    let lastFocusedElement = null;
+
+    function openModal(event) {
+        event.preventDefault();
+        lastFocusedElement = document.activeElement;
+        modal.classList.add('active');
+        body.classList.add('modal-open');
+
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+        }
+
+        const focusTarget = closeButton || modal.querySelector('[data-contact-option]');
+        if (focusTarget && typeof focusTarget.focus === 'function') {
+            focusTarget.focus();
+        }
+    }
+
+    function closeModal() {
+        if (!modal.classList.contains('active')) {
+            return;
+        }
+
+        modal.classList.remove('active');
+        body.classList.remove('modal-open');
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+        }
+    }
+
+    contactTriggers.forEach(trigger => {
+        trigger.addEventListener('click', openModal);
+    });
+
+    if (closeButton) {
+        closeButton.addEventListener('click', closeModal);
+    }
+
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeModal();
+        }
+    });
+
+    contactOptions.forEach(option => {
+        option.addEventListener('click', closeModal);
+    });
+}
+
+function updateContactBarOffset() {
+    const topContactBar = document.querySelector('.top-contact-bar');
+    const root = document.documentElement;
+
+    if (topContactBar) {
+        const height = topContactBar.offsetHeight;
+        root.style.setProperty('--top-contact-bar-height', `${height}px`);
+    } else {
+        root.style.removeProperty('--top-contact-bar-height');
+    }
+}
+
+function observeContactBarHeight() {
+    if (typeof ResizeObserver === 'undefined') {
+        return;
+    }
+
+    const topContactBar = document.querySelector('.top-contact-bar');
+    if (!topContactBar) {
+        return;
+    }
+
+    if (contactBarResizeObserver) {
+        contactBarResizeObserver.disconnect();
+    }
+
+    contactBarResizeObserver = new ResizeObserver(() => {
+        updateContactBarOffset();
+    });
+
+    contactBarResizeObserver.observe(topContactBar);
+}
+
+function handleWindowResize() {
+    if (resizeDebounceTimer) {
+        clearTimeout(resizeDebounceTimer);
+    }
+
+    resizeDebounceTimer = setTimeout(() => {
+        updateContactBarOffset();
+    }, 150);
 }
