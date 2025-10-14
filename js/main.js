@@ -1,4 +1,4 @@
-// Montgomery Medical Clinic - Main JavaScript
+// Montgomery Medical Clinic - Main JavaScript with Perfect Dropdown
 
 let dropdownInitialized = false;
 let headerFeaturesInitialized = false;
@@ -11,161 +11,110 @@ function initDropdown() {
     const servicesWrapper = document.querySelector('.services-dropdown-wrapper');
     const servicesButton = document.getElementById('services-button');
     const servicesDropdown = document.getElementById('services-dropdown');
+    const servicesArrow = document.getElementById('services-arrow');
 
     if (!servicesWrapper || !servicesButton || !servicesDropdown) {
         return false;
     }
 
-    const newWrapper = servicesWrapper.cloneNode(true);
-    servicesWrapper.parentNode.replaceChild(newWrapper, servicesWrapper);
-
-    const wrapper = document.querySelector('.services-dropdown-wrapper');
-    const button = document.getElementById('services-button');
-    const dropdown = document.getElementById('services-dropdown');
-
-    const hiddenTransform = 'translateX(calc(-50% + var(--services-dropdown-offset-x, 0px))) translateY(-10px)';
-    const visibleTransform = 'translateX(calc(-50% + var(--services-dropdown-offset-x, 0px))) translateY(0)';
-
-    // Align JS-applied baseline with CSS in css/dropdown-fix.css
-    dropdown.style.cssText = `
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        transform: ${hiddenTransform};
-        -webkit-transform: ${hiddenTransform};
-        width: 380px;
-        max-width: 90vw;
-        background: linear-gradient(to bottom, #ffffff, #f8fbff);
-        border-radius: 16px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(13, 71, 161, 0.1);
-        border: 2px solid #0d47a1;
-        z-index: 999999;
-        margin-top: 0.5rem;
-        padding: 0.75rem 0;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
-        display: none;
-        -webkit-font-smoothing: antialiased;
-        backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-    `;
-
     let isOpen = false;
-    let closeTimer = null;
+    let hoverTimeout = null;
 
-    function computeAndPlace() {
-        // Ensure fixed mode to avoid ancestor clipping
-        dropdown.classList.add('is-fixed');
-
-        // Temporarily show invisibly to measure
-        const prev = {
-            display: dropdown.style.display,
-            opacity: dropdown.style.opacity,
-            visibility: dropdown.style.visibility,
-            left: dropdown.style.left,
-            top: dropdown.style.top,
-        };
-        dropdown.style.display = 'block';
-        dropdown.style.opacity = '0';
-        dropdown.style.visibility = 'hidden';
-        dropdown.style.left = '50%';
-
-        const btnRect = button.getBoundingClientRect();
-        const ddWidth = dropdown.offsetWidth || 380;
-        const centerX = btnRect.left + (btnRect.width / 2);
-        const pad = 12; // viewport padding
-        const minCenter = pad + ddWidth / 2;
-        const maxCenter = window.innerWidth - pad - ddWidth / 2;
-        const clampedCenter = Math.min(Math.max(centerX, minCenter), maxCenter);
-
-        dropdown.style.left = `${clampedCenter}px`;
-        dropdown.style.top = `${Math.round(btnRect.bottom + 8)}px`;
-
-        // Restore visibility; keep display so open anim is smooth
-        dropdown.style.display = prev.display !== undefined ? prev.display : '';
-        dropdown.style.opacity = prev.opacity !== undefined ? prev.opacity : '';
-        dropdown.style.visibility = prev.visibility !== undefined ? prev.visibility : '';
-    }
-
-    function openDropdown() {
-        clearTimeout(closeTimer);
-        computeAndPlace();
-        dropdown.style.display = 'block';
-        dropdown.offsetHeight; // Force reflow
-        dropdown.style.opacity = '1';
-        dropdown.style.visibility = 'visible';
-        dropdown.style.pointerEvents = 'auto';
-        dropdown.style.transform = visibleTransform;
-        dropdown.style.webkitTransform = visibleTransform;
+    // Function to show dropdown
+    function showDropdown() {
+        clearTimeout(hoverTimeout);
+        servicesDropdown.classList.add('active');
+        if (servicesArrow) {
+            servicesArrow.style.transform = 'rotate(180deg)';
+        }
         isOpen = true;
     }
 
-    function closeDropdown() {
-        dropdown.style.opacity = '0';
-        dropdown.style.visibility = 'hidden';
-        dropdown.style.pointerEvents = 'none';
-        dropdown.style.transform = hiddenTransform;
-        dropdown.style.webkitTransform = hiddenTransform;
-        closeTimer = setTimeout(() => {
-            dropdown.style.display = 'none';
-        }, 220);
-        isOpen = false;
+    // Function to hide dropdown
+    function hideDropdown() {
+        hoverTimeout = setTimeout(() => {
+            servicesDropdown.classList.remove('active');
+            if (servicesArrow) {
+                servicesArrow.style.transform = 'rotate(0deg)';
+            }
+            isOpen = false;
+        }, 150);
     }
 
-    wrapper.addEventListener('mouseenter', openDropdown);
-
-    wrapper.addEventListener('mouseleave', (event) => {
-        const toElement = event.relatedTarget;
-        if (!dropdown.contains(toElement)) {
-            closeDropdown();
+    // Desktop hover events
+    servicesWrapper.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 1024) {
+            showDropdown();
         }
     });
 
-    dropdown.addEventListener('mouseenter', () => {
-        clearTimeout(closeTimer);
-    });
-
-    dropdown.addEventListener('mouseleave', (event) => {
-        const toElement = event.relatedTarget;
-        if (!wrapper.contains(toElement)) {
-            closeDropdown();
+    servicesWrapper.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 1024) {
+            hideDropdown();
         }
     });
 
-    button.addEventListener('click', (event) => {
+    // Keep dropdown open when hovering over it
+    servicesDropdown.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 1024) {
+            clearTimeout(hoverTimeout);
+        }
+    });
+
+    servicesDropdown.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 1024) {
+            hideDropdown();
+        }
+    });
+
+    // Mobile/tablet click events
+    servicesButton.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
-        if (isOpen) {
-            closeDropdown();
-        } else {
-            openDropdown();
-        }
-    });
-
-    document.addEventListener('click', (event) => {
-        if (!wrapper.contains(event.target) && !dropdown.contains(event.target)) {
+        
+        if (window.innerWidth <= 1024) {
             if (isOpen) {
-                closeDropdown();
+                hideDropdown();
+            } else {
+                showDropdown();
             }
         }
     });
 
-    document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && isOpen) {
-            closeDropdown();
+    // Close on outside click
+    document.addEventListener('click', (event) => {
+        if (!servicesWrapper.contains(event.target) && !servicesDropdown.contains(event.target)) {
+            if (isOpen) {
+                servicesDropdown.classList.remove('active');
+                if (servicesArrow) {
+                    servicesArrow.style.transform = 'rotate(0deg)';
+                }
+                isOpen = false;
+            }
         }
     });
 
-    // Keep position correct across resize/scroll while open
-    const reflowPosition = () => {
-        if (isOpen) {
-            computeAndPlace();
+    // Close on Escape
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && isOpen) {
+            servicesDropdown.classList.remove('active');
+            if (servicesArrow) {
+                servicesArrow.style.transform = 'rotate(0deg)';
+            }
+            isOpen = false;
         }
-    };
-    window.addEventListener('resize', reflowPosition);
-    window.addEventListener('scroll', reflowPosition, { passive: true });
+    });
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1024 && isOpen) {
+            servicesDropdown.classList.remove('active');
+            if (servicesArrow) {
+                servicesArrow.style.transform = 'rotate(0deg)';
+            }
+            isOpen = false;
+        }
+    });
 
     dropdownInitialized = true;
     return true;
@@ -224,7 +173,7 @@ function initHeaderFeatures() {
 }
 
 function setupSmoothScroll() {
-    document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(event) {
             const href = this.getAttribute('href');
             if (!href || href === '#' || href.length === 0) {
