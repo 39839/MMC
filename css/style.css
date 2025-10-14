@@ -610,7 +610,7 @@ header nav {
 
 /* ===== MEDICAL GRADIENT BACKGROUNDS ===== */
 .bg-gradient-blue {
-    background: linear-gradient(135deg, var(--medical-blue) 0%, var(--deep-blue) 100%);
+    background: linear-gradient(135deg, #0d47a1 0%, #1565c0 50%, #002171 100%);
     position: relative;
 }
 
@@ -621,7 +621,7 @@ header nav {
     right: 0;
     width: 40%;
     height: 100%;
-    background: linear-gradient(135deg, transparent 0%, rgba(255, 143, 0, 0.15) 100%);
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 143, 0, 0.08) 100%);
     pointer-events: none;
 }
 
