@@ -223,3 +223,21 @@ function toggleDropdown(sectionId) {
         arrow.style.transform = 'rotate(180deg)';
     }
 }
+
+// Toggle function for collapsible sections with expandable-content class
+function toggleSection(sectionId) {
+    const content = document.getElementById(`${sectionId}-content`);
+    const arrow = document.getElementById(`${sectionId}-arrow`);
+    
+    if (!content || !arrow) return;
+    
+    // Toggle the active class for expandable content
+    content.classList.toggle('active');
+    
+    // Rotate the arrow
+    if (content.classList.contains('active')) {
+        arrow.style.transform = 'rotate(180deg)';
+    } else {
+        arrow.style.transform = 'rotate(0deg)';
+    }
+}

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Urgent & Primary Care | Montgomery Medical Clinic</title>
+    <title>Immediate & Primary Care | Montgomery Medical Clinic</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/style.css">
@@ -62,7 +62,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
             transition: transform 0.4s ease;
         }
 
@@ -97,18 +98,16 @@
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
-
-
     <!-- PAGE HEADER -->
     <section class="page-header">
         <div class="container mx-auto px-6 lg:px-8 relative z-10">
-            <div class="breadcrumb" data-aos="fade-right">
+            <div class="breadcrumb">
                 <a href="../index.html">Home</a>
                 <span>/</span>
-                <span>Urgent & Primary Care</span>
+                <span>Immediate & Primary Care</span>
             </div>
-            <h1 class="text-5xl lg:text-6xl font-black mb-6" data-aos="fade-up">Urgent & Primary Care</h1>
-            <p class="text-xl lg:text-2xl text-white/90 max-w-3xl" data-aos="fade-up" data-aos-delay="100">
+            <h1 class="text-5xl lg:text-6xl font-black mb-6">Immediate & Primary Care</h1>
+            <p class="text-xl lg:text-2xl text-white/90 max-w-3xl">
                 Your foundation for lifelong health - comprehensive care when you need it, without an appointment.
             </p>
         </div>
@@ -117,62 +116,75 @@
     <!-- INTRO SECTION -->
     <section class="py-20 lg:py-24 bg-white">
         <div class="container mx-auto px-6 lg:px-8">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-r from-blue-50 to-green-50 p-8 lg:p-12 rounded-3xl mb-12" data-aos="fade-up">
-                    <h2 class="text-3xl font-bold text-brand-blue mb-6">Walk-In Care & Lifelong Health Partnership</h2>
-                    <p class="text-lg leading-relaxed mb-4">
+            <div class="max-w-5xl mx-auto">
+                <div>
+                    <div class="prose max-w-none text-lg leading-relaxed space-y-4 text-medium-gray mb-12">
+                        <p>
+                            Like many individuals you may think that you do not need to visit a doctor unless you feel under the weather. However, having a primary health care provider that understands your medical history and health goals is crucial to your overall health. Regular exams and check ups are essential to detect health problems before they become major.
+                        </p>
+                        <p>
+                            At Montgomery Medical Clinic we strive to be your trusted provider in primary care by providing a seamless, patient-centered experience. We are committed to providing compassionate care for you and your family.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Walk-In Care Section -->
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-10 lg:p-14 rounded-3xl mb-12 shadow-xl">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-4 mr-5">
+                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-black">Walk-In Care & Lifelong Health Partnership</h3>
+                    </div>
+                    <p class="text-lg leading-relaxed mb-4 text-white/95">
                         Your whole family needs to visit a family physician regularly to maintain optimal health and receive routine physicals and preventative care. Recent research shows that adults who visit their primary care doctor regularly better manage chronic conditions, maintain lower healthcare costs, and are more satisfied with care.
                     </p>
-                    <p class="text-lg leading-relaxed italic">
-                        Our physicians and experienced medical team are available to provide the services you need <strong>without an appointment</strong>. We offer flexible hours seven days a week and are even <strong>open on holidays!</strong>
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16" data-aos="fade-up" data-aos-delay="100">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">More Cost Effective</h3>
-                        <p class="text-medium-gray">Significantly more affordable than an ER visit while providing the same quality care.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Most Insurance Accepted</h3>
-                        <p class="text-medium-gray">We accept most major insurance plans and offer transparent pricing.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">On-Site Services</h3>
-                        <p class="text-medium-gray">Diagnostic tools and treatment options available right here in our clinic.</p>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Expert Team</h3>
-                        <p class="text-medium-gray">Board-certified physicians and experienced medical professionals.</p>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border-2 border-white/20">
+                        <p class="text-xl leading-relaxed font-semibold">
+                            Our physicians and experienced medical team are available to provide the services you need <span class="text-brand-orange font-black">without an appointment</span>. We offer flexible hours six days a week and are even <span class="text-brand-orange font-black">open on most holidays!</span>
+                        </p>
                     </div>
                 </div>
 
-                <div class="prose max-w-none mb-12" data-aos="fade-up">
-                    <div class="bg-brand-blue/5 p-6 rounded-xl">
-                        <p class="text-lg font-semibold text-brand-blue">✓ On-Site X-Ray & Diagnostic Services</p>
+                <!-- Features Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+                    <!-- Insurance Card -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <div class="bg-blue-50 rounded-xl p-3 mr-5 flex-shrink-0">
+                                <svg class="w-7 h-7 text-brand-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-blue mb-2">Most Insurance Accepted</h3>
+                                <p class="text-medium-gray leading-relaxed mb-3">
+                                    We accept most major insurance plans.
+                                </p>
+                                <a href="insurance.html" class="text-brand-blue hover:text-brand-orange font-semibold text-sm transition-colors">
+                                    View accepted providers →
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- X-Ray Card -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300">
+                        <div class="flex items-start">
+                            <div class="bg-orange-50 rounded-xl p-3 mr-5 flex-shrink-0">
+                                <svg class="w-7 h-7 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-bold text-brand-blue mb-2">On-Site X-Ray & Diagnostics</h3>
+                                <p class="text-medium-gray leading-relaxed">
+                                    Advanced diagnostic tools and imaging services available right here in our clinic for immediate results.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -182,13 +194,13 @@
     <!-- SERVICES SECTION -->
     <section class="py-20 lg:py-24 bg-light-blue-bg">
         <div class="container mx-auto px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
+            <div class="text-center mb-16">
                 <h2 class="text-4xl lg:text-5xl font-black mb-6">Comprehensive Medical Services</h2>
                 <p class="text-xl text-medium-gray max-w-3xl mx-auto">From preventative care to urgent medical needs, we provide complete healthcare services for you and your family.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-up">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-brand-blue mb-6">Primary Care / Preventative</h3>
                     <ul class="space-y-3 text-medium-gray">
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Routine physicals & wellness exams</li>
@@ -203,8 +215,8 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-2xl font-bold text-brand-blue mb-6">Urgent Care Services</h3>
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-brand-blue mb-6">Immediate Care Services</h3>
                     <ul class="space-y-3 text-medium-gray">
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Colds / Upper respiratory infections</li>
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Fever & sore throat</li>
@@ -218,7 +230,7 @@
                     </ul>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-brand-blue mb-6">Chronic Disease Management</h3>
                     <ul class="space-y-3 text-medium-gray">
                         <li class="flex items-start"><span class="text-brand-orange mr-2">•</span> Hypertension (high blood pressure)</li>
@@ -243,10 +255,10 @@
                 <p class="text-xl text-medium-gray max-w-3xl mx-auto">Board-certified family medicine doctors dedicated to your health and wellbeing.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 
                 <!-- Dr. Efi Kessous -->
-                <div class="provider-card" data-aos="fade-up">
+                <div class="provider-card">
                     <div class="provider-image-container">
                         <img src="../images/Efi.jpg" alt="Dr. Efi Kessous" class="provider-image">
                     </div>
@@ -266,7 +278,7 @@
                 </div>
 
                 <!-- Dr. Bertha Velandia -->
-                <div class="provider-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="provider-card">
                     <div class="provider-image-container">
                         <img src="../images/Bertha.jpg" alt="Dr. Bertha Velandia" class="provider-image">
                     </div>
@@ -286,7 +298,7 @@
                 </div>
 
                 <!-- Dr. Jonathan Lawless -->
-                <div class="provider-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="provider-card">
                     <div class="provider-image-container">
                         <img src="../images/LawLess.png" alt="Dr. Jonathan Lawless" class="provider-image">
                     </div>
@@ -312,15 +324,15 @@
     <!-- CTA SECTION -->
     <section class="py-20 lg:py-24 bg-light-blue-bg">
         <div class="container mx-auto px-6 lg:px-8">
-            <div class="bg-gradient-blue text-white rounded-3xl p-12 lg:p-16 text-center shadow-2xl max-w-4xl mx-auto" data-aos="fade-up">
+            <div class="bg-gradient-blue text-white rounded-3xl p-12 lg:p-16 text-center shadow-2xl max-w-4xl mx-auto">
                 <h2 class="text-3xl lg:text-4xl font-black mb-6">Ready to Get Started?</h2>
                 <p class="text-xl mb-8 text-white/90">Walk in today or schedule an appointment for your convenience.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="btn btn-secondary px-10 py-4 text-lg">
                         Schedule Appointment
                     </a>
-                    <a href="#" class="btn btn-outline px-10 py-4 text-lg border-white text-white hover:bg-white hover:text-brand-blue contact-trigger" data-contact-trigger>
-                        Contact Us
+                    <a href="tel:3012082273" class="btn btn-outline px-10 py-4 text-lg border-white text-white hover:bg-white hover:text-brand-blue">
+                        Call (301) 208-2273
                     </a>
                 </div>
             </div>
@@ -330,15 +342,8 @@
     <!-- FOOTER -->
     <div id="footer-placeholder"></div>
     
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/header-footer-loader.js"></script>
     <script src="../js/main.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-        });
-    </script>
 
 </body>
 </html>
