@@ -31,12 +31,21 @@
 </div>
 
 <!-- Main Navigation Header -->
-<header class="glass-effect sticky" style="z-index: 10020; overflow: visible !important; transform: translateZ(0); -webkit-transform: translateZ(0); backface-visibility: hidden; -webkit-backface-visibility: hidden;">
+<header class="glass-effect sticky top-0" style="z-index: 10020;">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
-        <nav class="flex items-center justify-between py-3 gap-2">
-            <div class="flex items-center flex-shrink-0" style="padding: 0.25rem;">
-                <a href="#" class="flex items-center group logo-link" style="margin-right: 2rem;">
-                    <img src="#" alt="Montgomery Medical Clinic" class="h-20 w-auto lg:h-24 object-contain transition-transform duration-200 group-hover:scale-105 logo-img" />
+        <nav class="flex items-center justify-between py-3 gap-2 relative">
+            <!-- Logo - Fixed for immediate loading -->
+            <div class="flex items-center flex-shrink-0">
+                <a href="#" class="flex items-center group logo-link">
+                    <img 
+                        src="images/Logo.png" 
+                        alt="Montgomery Medical Clinic" 
+                        class="h-16 w-auto lg:h-20 object-contain transition-transform duration-200 group-hover:scale-105 logo-img"
+                        loading="eager"
+                        fetchpriority="high"
+                        width="200"
+                        height="80"
+                    />
                 </a>
             </div>
 
@@ -71,27 +80,29 @@
                     Patient Portal
                 </a>
                 
-                <button id="mobile-menu-btn" class="lg:hidden p-2 text-dark-gray hover:text-brand-blue transition-colors" aria-label="Toggle menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
+                <!-- Mobile Menu Button - Clean and minimal -->
+                <button id="mobile-menu-btn" class="lg:hidden mobile-menu-button" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
                 </button>
             </div>
         </nav>
         
-        <div id="mobile-menu" class="hidden lg:hidden pb-4">
-            <div class="flex flex-col space-y-3">
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-home">Home</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-urgent">Urgent & Primary Care</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-sports">Sports Medicine</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-derma">Dermatology</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-acupuncture">Five Elements Acupuncture</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-wellness">Wellness Center</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-occupational">Occupational Health</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-about">About</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded mobile-nav-insurance">Insurance</a>
-                <a href="#" class="py-2 px-4 text-dark-gray font-semibold hover:bg-light-gray rounded contact-trigger" data-contact-trigger>Contact</a>
-                <a href="https://15259-6.portal.athenahealth.com/" target="_blank" class="sm:hidden btn btn-secondary mt-2">
+        <!-- Mobile Menu - Minimal and clean -->
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <div class="mobile-menu-inner">
+                <a href="#" class="mobile-menu-item mobile-nav-home">Home</a>
+                <a href="#" class="mobile-menu-item mobile-nav-urgent">Urgent & Primary Care</a>
+                <a href="#" class="mobile-menu-item mobile-nav-sports">Sports Medicine</a>
+                <a href="#" class="mobile-menu-item mobile-nav-derma">Dermatology</a>
+                <a href="#" class="mobile-menu-item mobile-nav-acupuncture">Five Elements Acupuncture</a>
+                <a href="#" class="mobile-menu-item mobile-nav-wellness">Wellness Center</a>
+                <a href="#" class="mobile-menu-item mobile-nav-occupational">Occupational Health</a>
+                <a href="#" class="mobile-menu-item mobile-nav-about">About</a>
+                <a href="#" class="mobile-menu-item mobile-nav-insurance">Insurance</a>
+                <a href="#" class="mobile-menu-item contact-trigger" data-contact-trigger>Contact</a>
+                <a href="https://15259-6.portal.athenahealth.com/" target="_blank" class="mobile-menu-item mobile-menu-portal sm:hidden">
                     Patient Portal
                 </a>
             </div>
@@ -201,3 +212,74 @@
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (!mobileMenuBtn || !mobileMenu) {
+        return;
+    }
+
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('is-open');
+    mobileMenuBtn.classList.remove('active');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+
+    const openMenu = () => {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('is-open');
+        document.body.classList.add('mobile-menu-open');
+        mobileMenuBtn.classList.add('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    };
+
+    const closeMenu = () => {
+        mobileMenu.classList.remove('is-open');
+        mobileMenu.classList.add('hidden');
+        document.body.classList.remove('mobile-menu-open');
+        mobileMenuBtn.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    mobileMenuBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (mobileMenu.classList.contains('hidden')) {
+            openMenu();
+        } else {
+            closeMenu();
+        }
+    });
+
+    mobileMenu.querySelectorAll('.mobile-menu-item').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMenu();
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        const isMenuOpen = !mobileMenu.classList.contains('hidden');
+        if (!isMenuOpen) {
+            return;
+        }
+
+        if (mobileMenu.contains(event.target) || mobileMenuBtn.contains(event.target)) {
+            return;
+        }
+
+        closeMenu();
+    });
+
+    const handleViewportReset = () => {
+        if (window.innerWidth >= 1024) {
+            closeMenu();
+        }
+    };
+
+    window.addEventListener('resize', handleViewportReset);
+    window.addEventListener('orientationchange', handleViewportReset);
+});
+</script>
