@@ -39,6 +39,18 @@
         html, body {
             max-width: 100vw;
             overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* Mobile-first responsive design */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Ensure touch targets are at least 44x44px */
+        button, a, input, select, textarea {
+            min-height: 44px;
+            min-width: 44px;
         }
 
         /* Critical: Only show one slide at a time */
@@ -56,30 +68,46 @@
         
         /* Enhanced Mobile Responsiveness */
         @media (max-width: 768px) {
+            /* Prevent text from being too small */
+            body {
+                font-size: 16px;
+            }
+
+            /* Hero section mobile optimization */
+            .page-header h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+
             /* Slideshow mobile adjustments */
             .slideshow-container {
-                padding: 1rem !important;
+                padding: 0.75rem !important;
+                margin: 0 -1rem;
             }
             
             .slide {
                 padding: 1rem !important;
                 min-height: 180px !important;
+                flex-direction: column;
             }
             
             .slide h3 {
-                font-size: 1.25rem !important;
+                font-size: 1.125rem !important;
                 line-height: 1.3 !important;
+                text-align: center;
             }
             
             .slide .inline-flex {
-                font-size: 0.8rem !important;
+                font-size: 0.75rem !important;
                 padding: 0.5rem 0.75rem !important;
+                white-space: normal;
+                text-align: center;
             }
             
             /* Navigation arrows mobile */
             .slideshow-container button {
-                width: 32px;
-                height: 32px;
+                width: 36px;
+                height: 36px;
                 padding: 0.5rem;
             }
             
@@ -92,11 +120,24 @@
             .btn {
                 min-height: 48px;
                 touch-action: manipulation;
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
             }
             
             /* Service cards mobile spacing */
             #services .grid {
                 gap: 1rem;
+                grid-template-columns: 1fr;
+            }
+
+            /* Stats section mobile */
+            .stat-number {
+                font-size: 2.5rem !important;
+            }
+
+            /* Cards on mobile */
+            .card {
+                padding: 1.5rem !important;
             }
         }
         
@@ -106,19 +147,24 @@
             }
             
             .slide h3 {
-                font-size: 1.1rem !important;
+                font-size: 1rem !important;
             }
             
             /* Ensure buttons wrap nicely */
             .slide .flex-wrap {
                 justify-content: center;
             }
+
+            /* Navigation improvements */
+            .breadcrumb {
+                font-size: 0.875rem;
+            }
         }
         
         /* Clean & Aesthetic Slideshow Container */
         .slideshow-container {
             background: white;
-            border: 1px solid #e5e7eb; /* tailwind's gray-200 */
+            border: 1px solid #e5e7eb;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             max-width: 100%;
             overflow: hidden;
@@ -129,6 +175,7 @@
             display: flex;
             justify-content: center;
             gap: 6px;
+            margin-top: 1rem;
         }
         
         @media (min-width: 768px) {
@@ -138,24 +185,28 @@
         }
         
         .slideshow-dot {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: #d1d5db;
             cursor: pointer;
             transition: all 0.3s ease;
+            min-width: 10px;
+            min-height: 10px;
         }
         
         @media (min-width: 768px) {
             .slideshow-dot {
-                width: 9px;
-                height: 9px;
+                width: 12px;
+                height: 12px;
+                min-width: 12px;
+                min-height: 12px;
             }
         }
         
         .slideshow-dot.active {
             background: #0d47a1;
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
         
         .slideshow-dot:hover {
@@ -179,6 +230,14 @@
         /* Individual cards need room for hover effects */
         #services .card {
             margin: 0.75rem;
+        }
+
+        /* Mobile menu improvements */
+        @media (max-width: 1024px) {
+            .mobile-menu-button {
+                min-width: 48px;
+                min-height: 48px;
+            }
         }
     </style>
 </head>
@@ -473,10 +532,10 @@
     <section id="insurance" class="py-16 md:py-24 lg:py-32 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-16 max-w-4xl mx-auto" data-aos="fade-up">
-                <h2 class="section-title text-dark-gray mb-6">Insurance Information</h2>
-                <p class="section-subtitle">We accept a wide variety of insurance plans to make quality healthcare accessible.</p>
+                <h2 class="section-title text-dark-gray mb-6">Insurance Information for Our Clinic</h2>
+                <p class="section-subtitle">Our medical center and urgent care center accept a wide variety of insurance plans to make quality healthcare from our doctors and primary care providers accessible to everyone in our community.</p>
                 <a href="pages/insurance.html" class="btn btn-primary mt-8 inline-flex">
-                    View All Accepted Insurance Plans
+                    View All Accepted Insurance Plans at Our Medical Center
                 </a>
             </div>
         </div>
@@ -484,10 +543,10 @@
     <section class="py-16 md:py-24 lg:py-32 bg-light-blue-bg">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-blue text-white rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-20 text-center shadow-2xl" data-aos="fade-up">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6">Ready to Experience the Difference?</h2>
-                <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 text-white/90 max-w-2xl mx-auto">Join thousands of satisfied patients who trust Montgomery Medical Clinic for their healthcare needs.</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-3 sm:mb-4 md:mb-6">Ready to Experience Quality Care at Our Medical Center?</h2>
+                <p class="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 text-white/90 max-w-2xl mx-auto">Join thousands of satisfied patients who trust our urgent care center, primary care providers, and doctors at Montgomery Medical Clinic for their healthcare needs. Our clinic offers comprehensive services from experienced primary care physicians at our medical center.</p>
                 <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="btn btn-secondary px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 text-sm sm:text-base lg:text-lg inline-flex">
-                    Schedule Appointment
+                    Schedule Appointment at Our Clinic
                 </a>
             </div>
         </div>
