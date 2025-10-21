@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Occupational Health services at Montgomery Medical Clinic - FAA physicals, immigration medical exams, corporate care, and workplace health programs in Gaithersburg, MD.">
-    <title>Occupational Health | Montgomery Medical Clinic</title>
+    <meta name="description" content="Get your DOT physical, i693 form, and USCIS medical exam at our occupational health clinic. Expert occupation and health services including DOT physical exams and i693 USCIS medical exam processing for immigration.">
+    <title>DOT Physical & i693 USCIS Medical Exam | Occupational Health & Occupation and Health Services</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +36,8 @@
         .occupational-icon {
             width: 64px;
             height: 64px;
+            min-width: 64px;
+            min-height: 64px;
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -72,7 +74,77 @@
             color: white;
         }
 
-        /* Dropdown Accordion Styles */
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            .page-header h1 {
+                font-size: 2rem !important;
+                line-height: 1.2 !important;
+            }
+
+            .page-header p {
+                font-size: 1rem !important;
+            }
+
+            .accordion-header {
+                padding: 1.5rem !important;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .accordion-header .flex {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .accordion-header h3 {
+                font-size: 1.5rem !important;
+            }
+
+            .accordion-icon {
+                margin-top: 1rem;
+            }
+
+            .occupational-icon {
+                width: 56px;
+                height: 56px;
+                min-width: 56px;
+                min-height: 56px;
+            }
+
+            .btn {
+                min-height: 48px;
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .accordion-content {
+                padding: 1rem !important;
+            }
+
+            .grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .accordion-header h3 {
+                font-size: 1.25rem !important;
+            }
+
+            .breadcrumb {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* Touch-friendly design */
+        button, a {
+            min-height: 44px;
+            min-width: 44px;
+        }
         .accordion-item {
             border-radius: 1.5rem;
             overflow: hidden;
@@ -118,11 +190,11 @@
             <div class="breadcrumb" data-aos="fade-right">
                 <a href="../index.html">Home</a>
                 <span>/</span>
-                <span>Occupational Health</span>
+                <span>Occupational Health & DOT Physical</span>
             </div>
-            <h1 class="text-5xl lg:text-6xl font-black mb-6" data-aos="fade-up">Occupational Health Services</h1>
+            <h1 class="text-5xl lg:text-6xl font-black mb-6" data-aos="fade-up">Occupational Health: DOT Physical, i693 & USCIS Medical Exam Services</h1>
             <p class="text-xl lg:text-2xl text-white/90 max-w-3xl" data-aos="fade-up" data-aos-delay="100">
-                Expert medical examinations and workplace health solutions for businesses and individuals.
+                Comprehensive occupational health and occupation and health services including DOT physical exams, i693 form processing, and USCIS medical exam certifications for businesses and individuals.
             </p>
         </div>
     </section>
@@ -130,8 +202,8 @@
     <section class="py-24 lg:py-32 bg-white">
         <div class="container mx-auto px-6 lg:px-8">
             <div class="text-center mb-20 max-w-4xl mx-auto" data-aos="fade-up">
-                <h2 class="text-3xl lg:text-4xl font-black text-dark-gray mb-6">Comprehensive Occupational Health Services</h2>
-                <p class="section-subtitle">From FAA and immigration medical examinations to corporate wellness programs, we provide specialized healthcare services for businesses and individuals.</p>
+                <h2 class="text-3xl lg:text-4xl font-black text-dark-gray mb-6">Comprehensive Occupational Health, DOT Physical & i693 USCIS Medical Exam Services</h2>
+                <p class="section-subtitle">From DOT physical examinations and i693 form processing for USCIS medical exams to occupation and health programs, our occupational health clinic provides specialized healthcare services including DOT physical and USCIS medical exam certifications for businesses and individuals.</p>
             </div>
 
             <div class="max-w-5xl mx-auto space-y-6">
@@ -147,8 +219,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-3xl font-black text-brand-blue mb-1">Immigration Medical Examinations</h3>
-                                    <p class="text-lg text-brand-orange font-bold">Dr. Efi Kessous - USCIS-Authorized Civil Surgeon</p>
+                                    <h3 class="text-3xl font-black text-brand-blue mb-1">i693 USCIS Medical Exam - Immigration Physical</h3>
+                                    <p class="text-lg text-brand-orange font-bold">Dr. Efi Kessous - USCIS-Authorized for i693 & USCIS Medical Exam</p>
                                 </div>
                             </div>
                             <svg class="accordion-icon w-8 h-8 text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,12 +234,12 @@
                             <div class="w-20 h-1 bg-brand-orange rounded-full"></div>
                             
                             <div>
-                                <h4 class="text-2xl font-bold text-brand-blue mb-4">What is an Immigration Physical and who needs one?</h4>
+                                <h4 class="text-2xl font-bold text-brand-blue mb-4">What is an i693 USCIS Medical Exam and Immigration Physical?</h4>
                                 <p class="text-medium-gray leading-relaxed mb-4">
-                                    Individuals applying for a green card (lawful permanent residence) must undergo a physical examination by a licensed medical professional who has been authorized by the United States Citizenship and Immigration Service (USCIS). The purpose of this physical is to check green card applicants for pre-existing conditions that would preclude their applications from being approved.
+                                    Individuals applying for a green card (lawful permanent residence) must undergo a USCIS medical exam and complete the i693 form by a licensed medical professional authorized by USCIS. The purpose of this i693 USCIS medical exam is to check green card applicants for pre-existing conditions that would preclude their applications from being approved.
                                 </p>
                                 <p class="text-medium-gray leading-relaxed">
-                                    During the physical the physician will check for communicable diseases and provide any required vaccinations that have not yet been received.
+                                    During the USCIS medical exam, the physician will check for communicable diseases through the i693 examination and provide any required vaccinations for the i693 form completion.
                                 </p>
                             </div>
 
@@ -182,26 +254,26 @@
                             </div>
 
                             <div>
-                                <h4 class="text-2xl font-bold text-brand-blue mb-4">What should I bring to my Immigration Physical?</h4>
+                                <h4 class="text-2xl font-bold text-brand-blue mb-4">What should I bring to my i693 USCIS Medical Exam?</h4>
                                 <p class="text-medium-gray leading-relaxed">
-                                    You should come to your appointment with a government issued ID, such as a driving license or passport, and a copy of your immunization records.
+                                    You should come to your USCIS medical exam appointment with a government issued ID, such as a driving license or passport, and a copy of your immunization records for the i693 form processing.
                                 </p>
                             </div>
 
                             <div>
-                                <h4 class="text-2xl font-bold text-brand-blue mb-4">How long does it take to get the paperwork?</h4>
+                                <h4 class="text-2xl font-bold text-brand-blue mb-4">How long does it take to get the i693 paperwork after my USCIS medical exam?</h4>
                                 <p class="text-medium-gray leading-relaxed">
-                                    If all the test results come back normal you can typically expect a call within 1-2 weeks to let you know that the paperwork is ready to collect.
+                                    If all the i693 test results come back normal from your USCIS medical exam, you can typically expect a call within 1-2 weeks to let you know that the i693 paperwork is ready to collect.
                                 </p>
                             </div>
 
                             <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-2xl">
-                                <p class="text-lg font-bold text-brand-blue mb-2 text-center">Dr Efi Kessous is an authorized USCIS physician</p>
+                                <p class="text-lg font-bold text-brand-blue mb-2 text-center">Dr Efi Kessous is an authorized USCIS physician for i693 and USCIS medical exam services</p>
                             </div>
 
                             <div class="text-center">
                                 <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="inline-flex items-center gap-2 bg-brand-blue text-white font-bold px-8 py-4 rounded-xl hover:bg-deep-blue transition-all">
-                                    Schedule Your Appointment
+                                    Schedule Your i693 USCIS Medical Exam
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                                     </svg>
@@ -222,8 +294,8 @@
                                     </svg>
                                 </div>
                                 <div>
-                                    <h3 class="text-3xl font-black text-brand-blue mb-1">Corporate Care and Prevention</h3>
-                                    <p class="text-lg text-medium-gray">Partnering with businesses to promote employee health</p>
+                                    <h3 class="text-3xl font-black text-brand-blue mb-1">DOT Physical & Occupational Health for Businesses</h3>
+                                    <p class="text-lg text-medium-gray">Corporate occupation and health programs including DOT physical exams</p>
                                 </div>
                             </div>
                             <svg class="accordion-icon w-8 h-8 text-brand-blue flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -237,23 +309,23 @@
                             <div class="w-20 h-1 bg-brand-orange rounded-full"></div>
 
                             <p class="text-medium-gray leading-relaxed text-lg">
-                                We are proud to work with companies to provide wellness care to their employees. Below are some of the services we offer:
+                                We are proud to work with companies to provide occupational health and occupation and health wellness care including DOT physical exams to their employees. Below are some of the occupational health services we offer:
                             </p>
 
                             <div class="grid md:grid-cols-3 gap-6">
                                 <div class="bg-white p-6 rounded-2xl shadow-sm">
-                                    <h4 class="text-xl font-bold text-brand-blue mb-3">Pre-Hire Physical</h4>
-                                    <p class="text-medium-gray leading-relaxed">We conduct pre-hire drug tests and physicals to ensure your new employees are fit for duty.</p>
+                                    <h4 class="text-xl font-bold text-brand-blue mb-3">DOT Physical Exams</h4>
+                                    <p class="text-medium-gray leading-relaxed">We conduct DOT physical examinations and pre-hire drug tests to ensure your new employees are fit for duty and meet DOT physical requirements.</p>
                                 </div>
 
                                 <div class="bg-white p-6 rounded-2xl shadow-sm">
-                                    <h4 class="text-xl font-bold text-brand-blue mb-3">Workers Compensation Care</h4>
-                                    <p class="text-medium-gray leading-relaxed">If an employee was injured on the job, our physician will complete the necessary paperwork after conducting a thorough examination of the injury.</p>
+                                    <h4 class="text-xl font-bold text-brand-blue mb-3">Occupational Health - Workers Compensation</h4>
+                                    <p class="text-medium-gray leading-relaxed">If an employee was injured on the job, our occupational health physician will complete the necessary occupation and health paperwork after conducting a thorough examination.</p>
                                 </div>
 
                                 <div class="bg-white p-6 rounded-2xl shadow-sm">
-                                    <h4 class="text-xl font-bold text-brand-blue mb-3">Corporate Care & Prevention</h4>
-                                    <p class="text-medium-gray leading-relaxed">Schedule a wellness day at the office. Our physician will provide flu shots and quick check-ups, or have your employees meet us at the office for more in-depth examinations.</p>
+                                    <h4 class="text-xl font-bold text-brand-blue mb-3">Occupational Health Corporate Programs</h4>
+                                    <p class="text-medium-gray leading-relaxed">Schedule an occupational health wellness day at the office. Our occupation and health physician will provide flu shots, DOT physical screenings, and quick check-ups for comprehensive occupational health care.</p>
                                 </div>
                             </div>
                         </div>
@@ -373,14 +445,14 @@
     <section class="py-24 lg:py-32 bg-light-blue-bg">
         <div class="container mx-auto px-6 lg:px-8">
             <div class="bg-gradient-blue text-white rounded-3xl p-12 lg:p-20 text-center shadow-2xl" data-aos="fade-up">
-                <h2 class="text-4xl lg:text-5xl font-black mb-6">Call to Find Out More</h2>
-                <p class="text-xl mb-10 text-white/90 max-w-2xl mx-auto">Contact us to learn more about our occupational health services and how we can support your business or individual needs.</p>
+                <h2 class="text-4xl lg:text-5xl font-black mb-6">Ready for Your DOT Physical or i693 USCIS Medical Exam?</h2>
+                <p class="text-xl mb-10 text-white/90 max-w-2xl mx-auto">Contact our occupational health clinic to learn more about our DOT physical exams, i693 form processing, USCIS medical exam services, and occupation and health programs for your business or individual occupational health needs.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="tel:3012082273" class="btn btn-secondary px-12 py-5 text-lg inline-flex">
-                        Call (301) 208-2273
+                        Call for DOT Physical or i693
                     </a>
                     <a href="https://nextpatient.co/p/montgomerymedclinic/schedule" target="_blank" class="btn btn-outline px-12 py-5 text-lg border-white text-white hover:bg-white hover:text-brand-blue inline-flex">
-                        Schedule Online
+                        Schedule USCIS Medical Exam Online
                     </a>
                 </div>
             </div>
